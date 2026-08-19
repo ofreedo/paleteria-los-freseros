@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Paletería Los Freseros — Website Proposal</title>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,700;9..144,900&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  * { box-sizing: border-box; }
+  body {
+    margin: 0;
+    background: #FFF6E4;
+    color: #2A1810;
+    font-family: 'Plus Jakarta Sans', sans-serif;
+    line-height: 1.6;
+  }
+  .page {
+    max-width: 780px;
+    margin: 0 auto;
+    padding: 3rem 2rem 4rem;
+  }
+  .brand-row {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    margin-bottom: 2rem;
+  }
+  .brand-row img { width: 64px; height: 64px; }
+  .brand-row .name { font-family: 'Fraunces', serif; font-weight: 700; font-size: 1.4rem; color: #C6302B; }
+  .brand-row .tag { font-size: 0.85rem; color: #6B5A4E; }
+  h1 {
+    font-family: 'Fraunces', serif;
+    font-weight: 900;
+    font-size: 2.2rem;
+    line-height: 1.15;
+    margin: 0 0 0.5rem;
+    color: #3B2118;
+  }
+  .subtitle { font-size: 1.05rem; color: #6B5A4E; margin: 0 0 2.5rem; }
+  h2 {
+    font-family: 'Fraunces', serif;
+    font-weight: 700;
+    font-size: 1.3rem;
+    color: #C6302B;
+    margin: 2.5rem 0 1rem;
+  }
+  p { margin: 0 0 1rem; font-size: 1rem; }
+  .card {
+    background: #FFFFFF;
+    border-radius: 16px;
+    padding: 1.5rem 1.75rem;
+    margin-bottom: 1rem;
+    box-shadow: 0 2px 8px rgba(42,24,16,0.06);
+  }
+  .item-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 1rem;
+    padding: 0.85rem 0;
+    border-bottom: 1px solid #EADFC7;
+  }
+  .item-row:last-child { border-bottom: none; }
+  .item-name { font-weight: 600; font-size: 0.98rem; }
+  .item-desc { font-size: 0.88rem; color: #6B5A4E; margin-top: 0.2rem; }
+  .item-price { font-weight: 700; color: #C6302B; white-space: nowrap; font-size: 0.98rem; }
+  .todo-list { list-style: none; margin: 0; padding: 0; }
+  .todo-list li {
+    display: flex;
+    align-items: flex-start;
+    gap: 0.6rem;
+    padding: 0.5rem 0;
+    font-size: 0.95rem;
+  }
+  .todo-list li::before {
+    content: "○";
+    color: #2F9E44;
+    font-size: 1rem;
+    flex-shrink: 0;
+    margin-top: 0.1rem;
+  }
+  .total-card {
+    background: #2A1810;
+    color: #FFF6E4;
+    border-radius: 16px;
+    padding: 2rem;
+    text-align: center;
+    margin-top: 2rem;
+  }
+  .total-label { font-size: 0.9rem; color: #F3A625; text-transform: uppercase; letter-spacing: 0.08em; font-weight: 700; margin-bottom: 0.5rem; }
+  .total-amount { font-family: 'Fraunces', serif; font-weight: 900; font-size: 3rem; }
+  .total-note { font-size: 0.85rem; color: rgba(255,246,228,0.75); margin-top: 0.5rem; }
+  .price-was {
+    font-family: 'Fraunces', serif;
+    font-size: 1.3rem;
+    color: rgba(255,246,228,0.5);
+    text-decoration: line-through;
+    margin-bottom: 0.25rem;
+  }
+  .discount-badge {
+    display: inline-block;
+    background: #2F9E44;
+    color: #FFF6E4;
+    font-size: 0.8rem;
+    font-weight: 700;
+    padding: 0.25rem 0.75rem;
+    border-radius: 999px;
+    margin-bottom: 0.75rem;
+  }
+  .note-box {
+    background: #FBEAF0;
+    border-left: 4px solid #E23E7E;
+    border-radius: 8px;
+    padding: 1rem 1.25rem;
+    font-size: 0.92rem;
+    margin-top: 1.5rem;
+  }
+  .footer {
+    text-align: center;
+    margin-top: 3rem;
+    font-size: 0.85rem;
+    color: #6B5A4E;
+  }
+  .cost-row {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 0.35rem 1rem;
+    padding: 0.75rem 0;
+    border-bottom: 1px solid #EADFC7;
+  }
+  .cost-row > div:first-child { flex: 1 1 200px; }
+  .cost-row:last-child { border-bottom: none; }
+  .cost-name { font-weight: 600; font-size: 0.95rem; }
+  .cost-desc { font-size: 0.85rem; color: #6B5A4E; margin-top: 0.15rem; }
+  .cost-amount { font-weight: 700; font-size: 0.95rem; white-space: nowrap; }
+  .cost-amount.free { color: #2F9E44; }
+  .cost-amount.paid { color: #3B2118; }
+  @media print {
+    body { background: white; }
+    .page { padding: 1rem; }
+  }
+</style>
+</head>
+<body>
+<div class="page">
+
+  <div class="brand-row">
+    <img src="images/logo.png" alt="Paletería Los Freseros">
+    <div>
+      <div class="name">Paletería Los Freseros</div>
+      <div class="tag">Website proposal</div>
+    </div>
+  </div>
+
+  <h1>Your new website, built from the ground up</h1>
+  <p class="subtitle">A simple summary of the work, what's finished, what's left, and the price for everything.</p>
+
+  <h2>What was built</h2>
+  <div class="card">
+    <div class="item-row">
+      <div>
+        <div class="item-name">Brand look and feel</div>
+        <div class="item-desc">Colors, fonts, and style that match a real Mexican paletería — fun, colorful, and premium.</div>
+      </div>
+      <div class="item-price">$1,800</div>
+    </div>
+    <div class="item-row">
+      <div>
+        <div class="item-name">5 full pages</div>
+        <div class="item-desc">Home, Menu, Our Story, Specials, and Contact / Visit Us. Looks great on phone, tablet, and computer.</div>
+      </div>
+      <div class="item-price">$4,200</div>
+    </div>
+    <div class="item-row">
+      <div>
+        <div class="item-name">Real menu and prices</div>
+        <div class="item-desc">Every item, price, and description checked against your menu board and DoorDash — nothing made up.</div>
+      </div>
+      <div class="item-price">$650</div>
+    </div>
+    <div class="item-row">
+      <div>
+        <div class="item-name">Photos, logo, and reviews</div>
+        <div class="item-desc">Your real logo and photos added throughout the site, plus real customer reviews from Google.</div>
+      </div>
+      <div class="item-price">$500</div>
+    </div>
+    <div class="item-row">
+      <div>
+        <div class="item-name">Google-ready setup</div>
+        <div class="item-desc">So the site shows up correctly in Google search, Google Maps, and when shared on Facebook or Instagram.</div>
+      </div>
+      <div class="item-price">$450</div>
+    </div>
+    <div class="item-row">
+      <div>
+        <div class="item-name">Going live</div>
+        <div class="item-desc">Website hosting setup and connecting your domain, paleterialosfreseros.com.</div>
+      </div>
+      <div class="item-price">$400</div>
+    </div>
+  </div>
+
+  <h2>What's left to add</h2>
+  <p>The site is live and working today. These are small updates — mostly new photos — included in the price below at no extra cost once you send them.</p>
+  <div class="card">
+    <ul class="todo-list">
+      <li>Photos for menu categories (Paletas, Nieves, Mangonadas, Frutas, Antojitos, Bebidas)</li>
+      <li>Photos for the Our Story page</li>
+      <li>Photos for menu items still missing a picture (elote, chicharrón preparado, diablito, and a few others)</li>
+      <li>The real story of how Los Freseros started, in your own words</li>
+    </ul>
+  </div>
+
+  <div class="total-card">
+    <div class="total-label">Total price</div>
+    <div class="price-was">$8,000</div>
+    <div class="discount-badge">Special price — 85% off</div>
+    <div class="total-amount">$1,200</div>
+    <div class="total-note">Includes every update listed above once photos are provided</div>
+  </div>
+
+  <div class="note-box">
+    $8,000 is the fair market price for this size of website if built by a design agency. Because we're neighbors and I wanted to support a local business, the price for you is $1,200 — covering everything from the first idea to what's finished today, plus the small updates still to come.
+  </div>
+
+  <h2>What it costs to keep the site running</h2>
+  <p>The one-time price above covers the build. After that, here's what keeps the website online each year.</p>
+  <div class="card">
+    <div class="cost-row">
+      <div>
+        <div class="cost-name">Domain name</div>
+        <div class="cost-desc">paleterialosfreseros.com — renews once a year through whoever you bought it from.</div>
+      </div>
+      <div class="cost-amount paid">~$15–20 / year</div>
+    </div>
+    <div class="cost-row">
+      <div>
+        <div class="cost-name">Web hosting</div>
+        <div class="cost-desc">The service that keeps the website online and loading fast.</div>
+      </div>
+      <div class="cost-amount free">Free</div>
+    </div>
+    <div class="cost-row">
+      <div>
+        <div class="cost-name">Secure connection (https)</div>
+        <div class="cost-desc">The lock icon in the browser that keeps the site secure. Renews on its own.</div>
+      </div>
+      <div class="cost-amount free">Free</div>
+    </div>
+  </div>
+  <p style="font-size: 0.9rem; color: #6B5A4E;">Good news: there is no monthly website bill. The only yearly cost is the domain name itself.</p>
+
+  <div class="note-box" style="background: #EAF3DE; border-left-color: #2F9E44;">
+    Good to know: this site does not have an admin panel. Menu changes, new photos, or new pages need someone to edit the website's code directly. Let me know whenever you'd like something updated.
+  </div>
+
+  <div class="footer">Paletería Los Freseros · Ben Lomond, California</div>
+
+</div>
+</body>
+</html>
