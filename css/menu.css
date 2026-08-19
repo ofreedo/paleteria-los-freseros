@@ -1,0 +1,84 @@
+/* ==========================================================================
+   Menu page specific styles
+   ========================================================================== */
+
+.menu-hero {
+  padding-block: var(--space-2xl) var(--space-lg);
+  text-align: center;
+  background: linear-gradient(180deg, var(--color-cream-deep), var(--color-cream));
+}
+.menu-hero h1 { margin-block: 0.4rem var(--space-sm); }
+.menu-hero .lead { margin-inline: auto; max-width: 50ch; }
+
+.menu-toolbar {
+  position: sticky;
+  top: 73px;
+  z-index: 50;
+  background: rgba(255, 246, 228, 0.96);
+  backdrop-filter: blur(8px);
+  border-bottom: 1px solid var(--color-line);
+  padding-block: var(--space-sm);
+}
+.menu-toolbar-inner {
+  display: flex;
+  gap: 0.6rem;
+  overflow-x: auto;
+  scrollbar-width: none;
+}
+.menu-toolbar-inner::-webkit-scrollbar { display: none; }
+.chip-filter {
+  flex-shrink: 0;
+  padding: 0.55em 1.2em;
+  border-radius: var(--radius-pill);
+  border: 2px solid var(--color-line);
+  background: var(--color-white);
+  font-weight: 700;
+  font-size: 0.85rem;
+  color: var(--color-choc);
+  transition: all var(--dur-fast) var(--ease-out);
+}
+.chip-filter:hover { border-color: var(--color-strawberry); }
+.chip-filter.is-active {
+  background: var(--color-chili);
+  border-color: var(--color-chili);
+  color: var(--color-cream);
+}
+
+.menu-category-block {
+  padding-block: var(--space-xl);
+  scroll-margin-top: 150px;
+}
+.menu-category-block + .menu-category-block {
+  border-top: 1px solid var(--color-line);
+}
+.menu-category-head {
+  margin-bottom: var(--space-md);
+}
+.menu-category-head h2 { color: var(--color-chili); }
+.menu-category-head p { color: var(--text-muted); margin-top: 0.25rem; }
+
+.menu-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: var(--space-md);
+}
+@media (max-width: 900px) {
+  .menu-grid { grid-template-columns: repeat(2, 1fr); }
+}
+@media (max-width: 560px) {
+  .menu-grid { grid-template-columns: 1fr; }
+}
+
+.menu-empty {
+  text-align: center;
+  padding-block: var(--space-xl);
+  color: var(--text-muted);
+  display: none;
+}
+.menu-empty.is-visible { display: block; }
+
+.menu-cta-band {
+  text-align: center;
+  padding-block: var(--space-xl);
+}
+.menu-cta-band .hero-ctas { justify-content: center; }

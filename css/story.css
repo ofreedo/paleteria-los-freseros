@@ -1,0 +1,73 @@
+/* ==========================================================================
+   Our Story page specific styles
+   ========================================================================== */
+
+.story-hero {
+  position: relative;
+  min-height: 60vh;
+  display: flex;
+  align-items: flex-end;
+  overflow: hidden;
+  background: var(--color-choc);
+}
+.story-hero .ph-img { position: absolute; inset: 0; width: 100%; height: 100%; font-size: 0; }
+.story-hero::before {
+  content: "";
+  position: absolute; inset: 0;
+  background: linear-gradient(0deg, rgba(20,10,6,0.9) 10%, rgba(20,10,6,0.25) 70%);
+  z-index: 1;
+}
+.story-hero-content {
+  position: relative;
+  z-index: 2;
+  color: var(--color-cream);
+  padding-block: var(--space-xl);
+}
+.story-hero-content h1 { color: var(--color-cream); margin-block: 0.3rem; }
+
+.story-block {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--space-xl);
+  align-items: center;
+}
+@media (max-width: 860px) {
+  .story-block { grid-template-columns: 1fr; }
+}
+.story-block.reverse .story-media { order: 2; }
+@media (max-width: 860px) {
+  .story-block.reverse .story-media { order: -1; }
+}
+.story-media {
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  aspect-ratio: 5/4;
+}
+.story-media .ph-img { width: 100%; height: 100%; }
+.story-copy p + p { margin-top: 1em; }
+
+.story-pillars {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: var(--space-md);
+}
+@media (max-width: 860px) {
+  .story-pillars { grid-template-columns: repeat(2, 1fr); }
+}
+.pillar {
+  text-align: center;
+  padding: var(--space-md);
+}
+.pillar .emoji { font-size: 2.25rem; display: block; margin-bottom: 0.5rem; }
+.pillar h3 { margin-bottom: 0.35rem; }
+.pillar p { font-size: 0.9rem; color: var(--text-muted); }
+
+.story-gallery-strip {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: var(--space-xs);
+}
+@media (max-width: 700px) {
+  .story-gallery-strip { grid-template-columns: repeat(2, 1fr); }
+}
+.story-gallery-strip .g-item { aspect-ratio: 3/4; }

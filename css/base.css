@@ -1,0 +1,237 @@
+/* ==========================================================================
+   Paletería Los Freseros — Base styles
+   ========================================================================== */
+
+*, *::before, *::after { box-sizing: border-box; }
+
+html {
+  scroll-behavior: smooth;
+}
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+}
+
+body {
+  margin: 0;
+  background: var(--bg-page);
+  color: var(--text-body);
+  font-family: var(--font-body);
+  font-size: var(--fs-body);
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+  overflow-x: hidden;
+}
+
+img { max-width: 100%; display: block; }
+svg { display: block; }
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+button {
+  font-family: inherit;
+  cursor: pointer;
+}
+
+ul, ol { margin: 0; padding: 0; list-style: none; }
+h1, h2, h3, h4, p { margin: 0; }
+
+:focus-visible {
+  outline: 3px solid var(--focus-ring);
+  outline-offset: 3px;
+  border-radius: 4px;
+}
+
+.skip-link {
+  position: absolute;
+  left: -9999px;
+  top: 0;
+  background: var(--color-choc);
+  color: var(--color-cream);
+  padding: var(--space-sm) var(--space-md);
+  z-index: 200;
+  border-radius: 0 0 var(--radius-sm) 0;
+}
+.skip-link:focus {
+  left: 0;
+}
+
+/* ---- Typography ---- */
+h1, .h1 {
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: var(--fs-h1);
+  line-height: 1.05;
+  letter-spacing: -0.01em;
+}
+h2, .h2 {
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: var(--fs-h2);
+  line-height: 1.1;
+  letter-spacing: -0.01em;
+}
+h3, .h3 {
+  font-family: var(--font-display);
+  font-weight: 600;
+  font-size: var(--fs-h3);
+  line-height: 1.25;
+}
+.lead {
+  font-size: var(--fs-lead);
+  color: var(--text-muted);
+  line-height: 1.5;
+}
+.eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4em;
+  font-family: var(--font-body);
+  font-weight: 700;
+  font-size: var(--fs-tag);
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--color-chili);
+}
+.script {
+  font-family: var(--font-script);
+  font-weight: 500;
+}
+
+/* ---- Layout helpers ---- */
+.container {
+  max-width: var(--container-max);
+  margin-inline: auto;
+  padding-inline: var(--container-pad);
+}
+
+.section {
+  padding-block: var(--space-2xl);
+  position: relative;
+}
+@media (max-width: 640px) {
+  .section { padding-block: var(--space-xl); }
+}
+
+.section-head {
+  max-width: 640px;
+  margin-bottom: var(--space-lg);
+}
+.section-head.center {
+  margin-inline: auto;
+  text-align: center;
+}
+
+.bg-cream { background: var(--color-cream); }
+.bg-white { background: var(--color-white); }
+.bg-choc { background: var(--color-choc); color: var(--color-cream); }
+.bg-chili { background: var(--color-chili); color: var(--color-cream); }
+.bg-tropical { background: var(--color-tropical); color: var(--color-cream); }
+
+.visually-hidden {
+  position: absolute;
+  width: 1px; height: 1px;
+  padding: 0; margin: -1px;
+  overflow: hidden;
+  clip: rect(0,0,0,0);
+  white-space: nowrap;
+  border: 0;
+}
+
+/* ---- Buttons ---- */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5em;
+  padding: 0.9em 1.75em;
+  border-radius: var(--radius-pill);
+  font-weight: 700;
+  font-size: 0.95rem;
+  letter-spacing: 0.01em;
+  border: 2px solid transparent;
+  transition: transform var(--dur-fast) var(--ease-out), box-shadow var(--dur-fast) var(--ease-out), background-color var(--dur-fast) var(--ease-out);
+  white-space: nowrap;
+}
+.btn:hover { transform: translateY(-2px); }
+.btn:active { transform: translateY(0); }
+
+.btn-primary {
+  background: var(--color-mango);
+  color: var(--color-choc);
+  box-shadow: var(--shadow-sm);
+}
+.btn-primary:hover {
+  background: var(--color-mango-dark);
+  box-shadow: var(--shadow-md);
+}
+
+.btn-secondary {
+  background: transparent;
+  color: currentColor;
+  border-color: currentColor;
+}
+.btn-secondary:hover {
+  background: rgba(0,0,0,0.06);
+}
+.bg-choc .btn-secondary:hover,
+.bg-chili .btn-secondary:hover,
+.bg-tropical .btn-secondary:hover {
+  background: rgba(255,255,255,0.12);
+}
+
+.btn-outline-dark {
+  background: transparent;
+  color: var(--color-choc);
+  border-color: var(--color-choc);
+}
+.btn-outline-dark:hover {
+  background: var(--color-choc);
+  color: var(--color-cream);
+}
+
+.btn-sm {
+  padding: 0.6em 1.3em;
+  font-size: 0.85rem;
+}
+
+.btn-block { width: 100%; }
+
+/* ---- Badge ---- */
+.badge {
+  display: inline-flex;
+  align-items: center;
+  padding: 0.3em 0.85em;
+  border-radius: var(--radius-pill);
+  font-size: var(--fs-tag);
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  background: var(--color-strawberry);
+  color: var(--color-cream);
+}
+
+/* ---- Decorative divider ---- */
+.wave-divider {
+  display: block;
+  width: 100%;
+  height: auto;
+  line-height: 0;
+}
+
+/* ---- Skeleton image placeholder (until real photography is dropped in) ---- */
+.ph-img {
+  background: linear-gradient(135deg, var(--color-cream-deep), var(--color-mango) 140%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--color-choc-soft);
+  font-family: var(--font-body);
+  font-size: var(--fs-small);
+  font-weight: 600;
+  text-align: center;
+  padding: var(--space-sm);
+  min-height: 100%;
+}
