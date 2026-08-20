@@ -33,6 +33,12 @@ a {
 button {
   font-family: inherit;
   cursor: pointer;
+  -webkit-appearance: none;
+  appearance: none;
+  background: none;
+  border: none;
+  margin: 0;
+  color: inherit;
 }
 
 ul, ol { margin: 0; padding: 0; list-style: none; }
