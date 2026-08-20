@@ -207,7 +207,9 @@
   font-size: 0.92rem;
 }
 .footer-links li { margin-bottom: 0.55rem; }
+.footer-links a { transition: color var(--dur-fast) var(--ease-out); }
 .footer-links a:hover { color: var(--color-mango); }
+.footer-links a:active { color: var(--color-mango-dark); }
 .footer-bottom {
   margin-top: var(--space-xl);
   padding-top: var(--space-md);
@@ -231,9 +233,10 @@
   width: 38px; height: 38px;
   border-radius: 50%;
   background: rgba(255,246,228,0.1);
-  transition: background var(--dur-fast) var(--ease-out);
+  transition: background var(--dur-fast) var(--ease-out), transform var(--dur-fast) var(--ease-out);
 }
 .social-row a:hover { background: var(--color-strawberry); }
+.social-row a:active { transform: scale(0.9); transition-duration: 60ms; }
 .social-row svg { width: 18px; height: 18px; }
 
 /* ---- Scalloped divider (papel picado edge) ---- */
@@ -327,11 +330,28 @@
   color: var(--color-choc);
   transition: border-color var(--dur-fast) var(--ease-out), transform var(--dur-fast) var(--ease-out), background var(--dur-fast) var(--ease-out);
 }
-.craving-chip .emoji { font-size: 2rem; }
+.craving-chip .emoji { font-size: 2rem; display: inline-block; }
 .craving-chip:hover, .craving-chip.is-active {
   border-color: var(--color-strawberry);
   background: var(--color-cream-deep);
   transform: translateY(-4px);
+}
+.craving-chip:hover .emoji {
+  animation: craving-wiggle 0.5s var(--ease-out);
+}
+@keyframes craving-wiggle {
+  0%, 100% { transform: rotate(0deg) scale(1); }
+  25% { transform: rotate(-12deg) scale(1.1); }
+  50% { transform: rotate(10deg) scale(1.1); }
+  75% { transform: rotate(-6deg) scale(1.05); }
+}
+@media (prefers-reduced-motion: reduce) {
+  .craving-chip:hover .emoji { animation: none; }
+}
+.craving-chip:active {
+  transform: translateY(-1px) scale(0.97);
+  background: var(--color-cream-deep);
+  transition-duration: 60ms;
 }
 
 /* ---- Stars ---- */

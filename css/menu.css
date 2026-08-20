@@ -38,10 +38,17 @@
   transition: all var(--dur-fast) var(--ease-out);
 }
 .chip-filter:hover { border-color: var(--color-strawberry); }
+.chip-filter:active {
+  transform: scale(0.95);
+  transition-duration: 60ms;
+}
 .chip-filter.is-active {
   background: var(--color-chili);
   border-color: var(--color-chili);
   color: var(--color-cream);
+}
+.chip-filter.is-active:active {
+  background: var(--color-chili-dark);
 }
 
 .menu-category-block {
@@ -140,9 +147,18 @@
 }
 .topping-toggle .emoji { font-size: 1.75rem; line-height: 1; flex-shrink: 0; }
 .topping-toggle:hover { transform: translateY(-2px); border-color: var(--color-strawberry); }
+.topping-toggle:active {
+  transform: scale(0.96);
+  border-color: var(--color-strawberry);
+  background: var(--color-cream-deep);
+  transition-duration: 60ms;
+}
 .topping-toggle.is-selected {
   border-color: var(--color-tropical);
   background: #EAF3DE;
+}
+.topping-toggle.is-selected:active {
+  background: #DCEAC8;
 }
 .topping-toggle.is-selected::after {
   content: "✓";
@@ -169,10 +185,17 @@
   transition: all var(--dur-fast) var(--ease-out);
 }
 .paleta-flavor-toggle:hover { border-color: var(--color-strawberry); }
+.paleta-flavor-toggle:active {
+  transform: scale(0.96);
+  transition-duration: 60ms;
+}
 .paleta-flavor-toggle.is-selected {
   background: var(--color-chili);
   border-color: var(--color-chili);
   color: var(--color-cream);
+}
+.paleta-flavor-toggle.is-selected:active {
+  background: var(--color-chili-dark);
 }
 
 .builder-summary-card {

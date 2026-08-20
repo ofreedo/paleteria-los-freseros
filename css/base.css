@@ -162,7 +162,7 @@ h3, .h3 {
   white-space: nowrap;
 }
 .btn:hover { transform: translateY(-2px); }
-.btn:active { transform: translateY(0); }
+.btn:active { transform: translateY(0) scale(0.96); transition-duration: 60ms; }
 
 .btn-primary {
   background: var(--color-mango);
