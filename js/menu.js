@@ -5,6 +5,7 @@ document.addEventListener("DOMContentLoaded", () => {
   renderMenu();
   wireFilterClicks();
   applyInitialFilter();
+  if (typeof initScrollReveal === "function") initScrollReveal();
 });
 
 function moneyfmt(n) {
@@ -23,7 +24,7 @@ function productCard(item) {
     ? `<img src="${item.image}" alt="${item.name}" loading="lazy">`
     : `<div class="ph-img">[${item.name} photo]</div>`;
   return `
-    <div class="card">
+    <div class="card reveal">
       <div class="card-media">
         ${item.badge ? `<span class="badge card-top-badge">${item.badge}</span>` : ""}
         ${mediaHtml}
@@ -54,7 +55,7 @@ function renderMenu() {
     if (!items.length) return "";
     return `
       <section class="menu-category-block" id="${cat.id}" data-category="${cat.id}">
-        <div class="menu-category-head">
+        <div class="menu-category-head reveal">
           <h2 class="h2">${cat.name}</h2>
           <p>${cat.description}</p>
         </div>
@@ -71,33 +72,43 @@ function wireFilterClicks() {
   bar.addEventListener("click", (e) => {
     const btn = e.target.closest(".chip-filter");
     if (!btn) return;
-    setActiveFilter(btn.dataset.filter);
+    setActiveFilter(btn.dataset.filter, { scroll: true });
     history.replaceState(null, "", btn.dataset.filter === "all" ? "menu.html" : `menu.html?craving=${btn.dataset.filter}`);
   });
 }
 
-function setActiveFilter(filterId) {
+function setActiveFilter(filterId, options) {
+  options = options || {};
   document.querySelectorAll(".chip-filter").forEach((c) => {
     c.classList.toggle("is-active", c.dataset.filter === filterId);
   });
 
   const blocks = document.querySelectorAll(".menu-category-block");
   let anyVisible = false;
+  let firstVisibleBlock = null;
 
   if (filterId === "all") {
     blocks.forEach((b) => (b.style.display = ""));
     anyVisible = blocks.length > 0;
+    firstVisibleBlock = blocks[0] || null;
   } else {
     const craving = CRAVING_FILTERS.find((c) => c.id === filterId);
     const allowedCategories = craving ? craving.categories : [filterId];
     blocks.forEach((b) => {
       const show = allowedCategories.includes(b.dataset.category);
       b.style.display = show ? "" : "none";
-      if (show) anyVisible = true;
+      if (show) {
+        anyVisible = true;
+        if (!firstVisibleBlock) firstVisibleBlock = b;
+      }
     });
   }
 
   document.getElementById("menu-empty").classList.toggle("is-visible", !anyVisible);
+
+  if (options.scroll && firstVisibleBlock) {
+    firstVisibleBlock.scrollIntoView({ behavior: "smooth", block: "start" });
+  }
 }
 
 function applyInitialFilter() {
@@ -106,9 +117,7 @@ function applyInitialFilter() {
   const hash = window.location.hash.replace("#", "");
 
   if (craving && CRAVING_FILTERS.some((c) => c.id === craving)) {
-    setActiveFilter(craving);
-    const firstMatch = document.querySelector(`.menu-category-block[style=""]`) || document.getElementById(CRAVING_FILTERS.find(c => c.id === craving).categories[0]);
-    if (firstMatch) firstMatch.scrollIntoView({ behavior: "smooth", block: "start" });
+    setTimeout(() => setActiveFilter(craving, { scroll: true }), 50);
   } else if (hash && document.getElementById(hash)) {
     setTimeout(() => document.getElementById(hash).scrollIntoView({ behavior: "smooth", block: "start" }), 50);
   }

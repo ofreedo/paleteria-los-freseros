@@ -2,6 +2,35 @@
    Paletería Los Freseros — Shared components
    ========================================================================== */
 
+/* ---- Open/closed status badge ---- */
+.open-status-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.45rem;
+  font-weight: 700;
+  font-size: 0.8rem;
+  padding: 0.35em 0.9em;
+  border-radius: var(--radius-pill);
+  background: rgba(255,255,255,0.14);
+}
+.open-status-badge::before {
+  content: "";
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: currentColor;
+  flex-shrink: 0;
+}
+.open-status-badge.is-open { color: #7CD98A; }
+.open-status-badge.is-closed { color: #F3A625; }
+
+/* Light-background variant, e.g. on cream sections */
+.open-status-badge.on-light {
+  background: var(--color-cream-deep);
+}
+.open-status-badge.on-light.is-open { color: var(--color-tropical-dark); }
+.open-status-badge.on-light.is-closed { color: var(--color-chili-dark); }
+
 /* ---- Site Header ---- */
 .site-header {
   position: sticky;

@@ -4,6 +4,7 @@ document.addEventListener("DOMContentLoaded", () => {
   renderFavorites();
   renderCategories();
   renderPreview();
+  if (typeof initScrollReveal === "function") initScrollReveal();
 });
 
 function moneyfmt(n) {
@@ -22,7 +23,7 @@ function productCard(item) {
     ? `<img src="${item.image}" alt="${item.name}" loading="lazy">`
     : `<div class="ph-img">[${item.name} photo]</div>`;
   return `
-    <div class="card reveal is-visible">
+    <div class="card reveal">
       <div class="card-media">
         ${item.badge ? `<span class="badge card-top-badge">${item.badge}</span>` : ""}
         ${mediaHtml}

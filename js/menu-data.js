@@ -319,6 +319,22 @@ const CRAVING_FILTERS = [
   { id: "paleta", emoji: "🍭", label: "Una Paleta", categories: ["paletas"] }
 ];
 
+const PALETA_LOCA_BUILDER = {
+  basePrice: 7.99,
+  flavorStyles: [
+    { id: "fruit-base", label: "Fruit-Based" },
+    { id: "cream-base", label: "Cream-Based" }
+  ],
+  toppings: [
+    { id: "gummies", emoji: "🐻", label: "Gummies" },
+    { id: "tajin", emoji: "🌶️", label: "Tajín" },
+    { id: "miguelito", emoji: "🍋", label: "Miguelito" },
+    { id: "chamoy", emoji: "🍯", label: "Chamoy" },
+    { id: "jabalina", emoji: "🍬", label: "Jabalina" },
+    { id: "fruit", emoji: "🍓", label: "Fresh fruit" }
+  ]
+};
+
 const BUSINESS_INFO = {
   name: "Paletería Los Freseros",
   address: "7985 Highway 9, Ben Lomond, CA 95005",
@@ -334,5 +350,16 @@ const BUSINESS_INFO = {
     { day: "Saturday", time: "11:15 AM – 10:00 PM" },
     { day: "Sunday", time: "11:15 AM – 9:30 PM" }
   ],
+  // Same schedule as `hours` above, in 24-hour minutes-from-midnight for live open/closed checks.
+  // Keep in sync with `hours` if the schedule ever changes.
+  hoursMinutes: {
+    0: { open: 11 * 60 + 15, close: 21 * 60 + 30 }, // Sunday
+    1: { open: 11 * 60 + 15, close: 21 * 60 + 30 }, // Monday
+    2: { open: 11 * 60 + 15, close: 21 * 60 + 30 }, // Tuesday
+    3: { open: 11 * 60 + 15, close: 21 * 60 + 30 }, // Wednesday
+    4: { open: 11 * 60 + 15, close: 21 * 60 + 30 }, // Thursday
+    5: { open: 11 * 60 + 15, close: 22 * 60 }, // Friday
+    6: { open: 11 * 60 + 15, close: 22 * 60 } // Saturday
+  },
   mapEmbedQuery: "7985 Highway 9, Ben Lomond, CA 95005"
 };

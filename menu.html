@@ -69,6 +69,37 @@
     </div>
   </nav>
 
+  <section class="builder-section">
+    <div class="container">
+      <div class="section-head center reveal">
+        <p class="eyebrow" style="justify-content:center;">Build Your Own</p>
+        <h2 class="h2">Armá Tu Paleta Loca</h2>
+        <p class="lead">Pick your toppings. This is a preview to help you order — not a checkout.</p>
+      </div>
+
+      <div class="builder-layout reveal">
+        <div>
+          <p class="builder-step-label">1. Choose your paleta</p>
+          <div class="builder-paleta-select" id="builder-flavors"></div>
+
+          <p class="builder-step-label">2. Choose your toppings</p>
+          <div class="builder-toppings" id="builder-toppings"></div>
+        </div>
+
+        <div class="builder-summary-card">
+          <p class="builder-step-label" style="margin-bottom:0;">Your Paleta Loca</p>
+          <h3 class="h3" id="builder-flavor-name">Pick a flavor</h3>
+          <div class="builder-summary-list" id="builder-summary-list">
+            <span class="empty-hint">No toppings yet — tap a few above.</span>
+          </div>
+          <div class="builder-summary-price" id="builder-price">$7.99</div>
+          <a href="tel:+18317500477" class="btn btn-primary btn-block">Call to Order</a>
+          <p class="builder-summary-note">Price shown is the base Paleta Loca price. Final price may vary in-store.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
   <div class="container">
     <p class="menu-empty" id="menu-empty">No items match that craving yet — try another filter.</p>
     <div id="menu-categories"></div>
@@ -76,9 +107,9 @@
 
   <section class="menu-cta-band bg-cream">
     <div class="container">
-      <h2 class="h2">Ready to order?</h2>
-      <p class="lead" style="margin-bottom:var(--space-md);">Pickup and delivery available through DoorDash.</p>
-      <div class="hero-ctas">
+      <h2 class="h2 reveal">Ready to order?</h2>
+      <p class="lead reveal" style="margin-bottom:var(--space-md);">Pickup and delivery available through DoorDash.</p>
+      <div class="hero-ctas reveal">
         <a href="https://www.doordash.com/store/paleteria-los-freseros-ben-lomond-49023325/114671147/" target="_blank" rel="noopener" class="btn btn-primary">Order Online</a>
         <a href="contact.html" class="btn btn-outline-dark">Visit Us</a>
       </div>
@@ -135,5 +166,6 @@
 <script src="js/menu-data.js"></script>
 <script src="js/main.js"></script>
 <script src="js/menu.js"></script>
+<script src="js/builder.js"></script>
 </body>
 </html>
