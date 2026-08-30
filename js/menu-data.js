@@ -16,7 +16,7 @@ const MENU_ITEMS = [
     price: 3.50,
     category: "paletas",
     description: "Classic Mexican paleta.",
-    image: "images/menu/paleta.jpg"
+    image: "images/paleta-regular.png"
   },
   {
     id: "paleta-loca",
@@ -35,7 +35,7 @@ const MENU_ITEMS = [
     price: 4.49,
     category: "nieves",
     description: "Choice of flavor in a cup: lime, mango, vanilla, lavender, pistachio, chocolate, cookie dough, rainbow sherbet, strawberry cream, bubble gum, 10-20 caramel, and more.",
-    image: "images/menu/ice-cream-cup.jpg"
+    image: "images/ice-cream-one-scoop.png"
   },
   {
     id: "ice-cream-cup-2",
@@ -43,7 +43,7 @@ const MENU_ITEMS = [
     price: 5.49,
     category: "nieves",
     description: "Two scoops, choice of flavors, in a cup.",
-    image: "images/menu/ice-cream-cup.jpg"
+    image: "images/ice-cream-two-scoops.png"
   },
   {
     id: "ice-cream-cup-3",
@@ -51,7 +51,7 @@ const MENU_ITEMS = [
     price: 7.49,
     category: "nieves",
     description: "Three scoops, choice of flavors, in a cup.",
-    image: "images/menu/ice-cream-cup.jpg"
+    image: "images/ice-cream-three-scoops.png"
   },
   {
     id: "ice-cream-waffle-1",
@@ -59,7 +59,7 @@ const MENU_ITEMS = [
     price: 5.99,
     category: "nieves",
     description: "One scoop in a fresh waffle cone.",
-    image: "images/menu/waffle-cone.jpg"
+    image: "images/waffle-cone-one-scoops.png"
   },
   {
     id: "ice-cream-waffle-2",
@@ -67,7 +67,7 @@ const MENU_ITEMS = [
     price: 6.99,
     category: "nieves",
     description: "Two scoops in a fresh waffle cone.",
-    image: "images/menu/waffle-cone.jpg"
+    image: "images/waffle-cone-two-scoops.png"
   },
   {
     id: "ice-cream-waffle-3",
@@ -75,7 +75,7 @@ const MENU_ITEMS = [
     price: 8.99,
     category: "nieves",
     description: "Three scoops in a fresh waffle cone.",
-    image: "images/menu/waffle-cone.jpg"
+    image: "images/waffle-cone-three-scoops.png"
   },
   {
     id: "banana-gansito-split",
@@ -340,7 +340,7 @@ const MENU_ITEMS = [
     price: 2.99,
     category: "bebidas",
     description: "Coke, Sprite, Fanta, Kombucha, or sparkling water.",
-    image: "images/menu/drinks.jpg"
+    image: "images/fountain-drinks.png"
   },
   {
     id: "aguas-frescas-sm",
