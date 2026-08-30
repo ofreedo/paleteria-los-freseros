@@ -25,7 +25,7 @@ const MENU_ITEMS = [
     category: "paletas",
     description: "Choice of paleta, gummies, Tajín, miguelito, chamoy, jabalina, and fruit.",
     badge: "Fan Favorite",
-    image: "images/menu/paleta-loca.jpg"
+    image: "images/Paleta Loca.png"
   },
 
   // ---- Nieves / Ice Cream ----
@@ -115,7 +115,7 @@ const MENU_ITEMS = [
     price: 9.99,
     category: "nieves",
     description: "Strawberries, banana, blueberries, granola, and honey.",
-    image: "images/menu/acai-bowl.jpg"
+    image: "images/Acai Bowl.png"
   },
   {
     id: "acai-bowl-lg",
@@ -123,7 +123,7 @@ const MENU_ITEMS = [
     price: 10.99,
     category: "nieves",
     description: "Strawberries, banana, blueberries, granola, and honey.",
-    image: "images/menu/acai-bowl.jpg"
+    image: "images/Acai Bowl.png"
   },
   {
     id: "milkshake-sm",
@@ -182,7 +182,7 @@ const MENU_ITEMS = [
     category: "mangonadas",
     description: "Any water-based ice cream, Tajín, lime, jabalina, chamoy, and fresh mango.",
     badge: "Fan Favorite",
-    image: "images/menu/mangonada.jpg"
+    image: "images/Mangonada.png"
   },
   {
     id: "mangonada-md",
@@ -190,7 +190,7 @@ const MENU_ITEMS = [
     price: 9.99,
     category: "mangonadas",
     description: "Any water-based ice cream, Tajín, lime, jabalina, chamoy, and fresh mango.",
-    image: "images/menu/mangonada.jpg"
+    image: "images/Mangonada.png"
   },
   {
     id: "manzana-loca",
@@ -198,7 +198,7 @@ const MENU_ITEMS = [
     price: 9.49,
     category: "mangonadas",
     description: "Chamoy-covered apple, gummy candies, and Tajín.",
-    image: "images/menu/manzana-loca.jpg"
+    image: "images/Manzana Loca.png"
   },
   {
     id: "arizona-loca",
@@ -206,7 +206,7 @@ const MENU_ITEMS = [
     price: 7.99,
     category: "mangonadas",
     description: "Watermelon-flavored or mango, served on an Arizona can with fruit, gummies, jabalina, chamoy, and miguelito.",
-    image: "images/734756085_2080408462548013_9059996889824121553_n.jpg"
+    image: "images/Arizona_loca.png"
   },
 
   // ---- Frutas ----
@@ -216,7 +216,7 @@ const MENU_ITEMS = [
     price: 9.99,
     category: "frutas",
     description: "Fresh strawberries, sweet cream, whipped cream, and a cherry.",
-    image: "images/menu/fresas-con-crema.jpg"
+    image: "images/Fresas_con_crema.png"
   },
   {
     id: "fresas-con-crema-lg",
@@ -224,14 +224,14 @@ const MENU_ITEMS = [
     price: 10.99,
     category: "frutas",
     description: "Fresh strawberries, sweet cream, whipped cream, and a cherry.",
-    image: "images/menu/fresas-con-crema.jpg"
+    image: "images/Fresas_con_crema.png"
   },
   {
     id: "fresas-con-crema-frozen",
     name: "Fresas con Crema — Frozen Cup",
     category: "frutas",
     description: "Frozen strawberries, sweet cream, whipped cream, and a cherry.",
-    image: "images/menu/fresas-con-crema.jpg"
+    image: "images/Fresas_con_crema.png"
   },
   {
     id: "coctel-de-frutas",
@@ -257,7 +257,7 @@ const MENU_ITEMS = [
     price: 12.49,
     category: "antojitos",
     description: "Doritos, elote preparado, on the side with hot noodles.",
-    image: "images/menu/maruchan-loca.jpg"
+    image: "images/Maruchan_Loca.png"
   },
   {
     id: "tostilocos",
@@ -282,7 +282,7 @@ const MENU_ITEMS = [
     price: 10.29,
     category: "antojitos",
     description: "Nutella, banana, strawberries, whipped cream, and powdered sugar.",
-    image: "images/1ec9cedbcab70bfda43ae021e054aeb9.jpeg"
+    image: "images/Crepes.png"
   },
   {
     id: "concha-sandwich",
@@ -290,7 +290,7 @@ const MENU_ITEMS = [
     price: 8.99,
     category: "antojitos",
     description: "Chocolate or vanilla concha (pan dulce), any ice cream, whipped cream.",
-    image: "images/893e75105e5a0b4c56a55017606b6b5c.jpeg"
+    image: "images/Concha Sandwich.png"
   },
   {
     id: "elote-sm",
@@ -314,7 +314,7 @@ const MENU_ITEMS = [
     price: 11.99,
     category: "antojitos",
     description: "Tostitos chips with prepared elote.",
-    image: "images/menu/tosti-elote.jpg"
+    image: "images/Esquite.png"
   },
   {
     id: "chicharron-preparado",
@@ -348,7 +348,7 @@ const MENU_ITEMS = [
     price: 5.49,
     category: "bebidas",
     description: "Horchata, or lime with chia.",
-    image: "images/menu/aguas-frescas.jpg"
+    image: "images/horchata_grande.png"
   },
   {
     id: "aguas-frescas-lg",
@@ -356,7 +356,7 @@ const MENU_ITEMS = [
     price: 8.49,
     category: "bebidas",
     description: "Horchata, or lime with chia.",
-    image: "images/menu/aguas-frescas.jpg"
+    image: "images/horchata_grande.png"
   },
   {
     id: "italian-soda-sm",
@@ -380,7 +380,7 @@ const MENU_ITEMS = [
     price: 8.99,
     category: "bebidas",
     description: "Choice of blended Gansito, Oreo, Mazapán, coffee (extra Nescafé), or chocolate/caramel, with milk and whipped cream.",
-    image: "images/734732898_1796622708178205_699087450600480272_n.jpg"
+    image: "images/Frappe_de_mazapan.png"
   },
   {
     id: "frapuchino-lg",
@@ -388,7 +388,7 @@ const MENU_ITEMS = [
     price: 10.49,
     category: "bebidas",
     description: "Choice of blended Gansito, Oreo, Mazapán, coffee (extra Nescafé), or chocolate/caramel, with milk and whipped cream.",
-    image: "images/734732898_1796622708178205_699087450600480272_n.jpg"
+    image: "images/Frappe_de_mazapan.png"
   }
 ];
 
