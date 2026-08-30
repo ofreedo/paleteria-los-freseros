@@ -21,8 +21,8 @@
   background: currentColor;
   flex-shrink: 0;
 }
-.open-status-badge.is-open { color: #7CD98A; }
-.open-status-badge.is-closed { color: #F3A625; }
+.open-status-badge.is-open { color: #9AD147; }
+.open-status-badge.is-closed { color: var(--color-mango); }
 
 /* Light-background variant, e.g. on cream sections */
 .open-status-badge.on-light {

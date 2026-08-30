@@ -5,7 +5,7 @@
 .specials-hero {
   padding-block: var(--space-2xl) var(--space-lg);
   text-align: center;
-  background: linear-gradient(180deg, #FBE0EC, var(--color-cream));
+  background: linear-gradient(180deg, #FBDDE4, var(--color-cream));
 }
 .specials-hero h1 { margin-block: 0.4rem var(--space-sm); }
 .specials-hero .lead { margin-inline: auto; max-width: 52ch; }

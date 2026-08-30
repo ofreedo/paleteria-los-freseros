@@ -1,25 +1,47 @@
-// Menu page: "Build Your Own Paleta Loca" interactive preview (not a real checkout).
+// Menu page: "Build Your Own" interactive previews (not a real checkout).
+// Reusable factory so Paleta Loca, Arizona Loca, and Manzana Loca can each run
+// their own independent instance from the same code.
 
 document.addEventListener("DOMContentLoaded", () => {
-  if (typeof PALETA_LOCA_BUILDER === "undefined") return;
-  initBuilder();
+  if (typeof PALETA_LOCA_BUILDER !== "undefined") {
+    initBuilder({ rootId: "paleta-builder", data: PALETA_LOCA_BUILDER, itemName: "Paleta Loca", hasFlavorStyles: true });
+  }
+  if (typeof ARIZONA_LOCA_BUILDER !== "undefined") {
+    initBuilder({ rootId: "arizona-builder", data: ARIZONA_LOCA_BUILDER, itemName: "Arizona Loca" });
+  }
+  if (typeof MANZANA_LOCA_BUILDER !== "undefined") {
+    initBuilder({ rootId: "manzana-builder", data: MANZANA_LOCA_BUILDER, itemName: "Manzana Loca" });
+  }
+  initBuilderTabs();
 });
 
-function initBuilder() {
-  const flavorsEl = document.getElementById("builder-flavors");
-  const toppingsEl = document.getElementById("builder-toppings");
-  if (!flavorsEl || !toppingsEl) return;
+function initBuilder(config) {
+  const root = document.getElementById(config.rootId);
+  if (!root) return;
 
-  const state = {
-    flavor: null,
-    toppings: new Set()
-  };
+  const flavorsEl = root.querySelector("[data-builder-flavors]");
+  const toppingsEl = root.querySelector("[data-builder-toppings]");
+  const nameEl = root.querySelector("[data-builder-name]");
+  const listEl = root.querySelector("[data-builder-summary-list]");
+  const priceEl = root.querySelector("[data-builder-price]");
+  if (!toppingsEl || !nameEl || !listEl || !priceEl) return;
 
-  flavorsEl.innerHTML = PALETA_LOCA_BUILDER.flavorStyles
-    .map((f) => `<button type="button" class="paleta-flavor-toggle" data-flavor="${f.id}">${f.label}</button>`)
-    .join("");
+  const state = { flavor: null, toppings: new Set() };
 
-  toppingsEl.innerHTML = PALETA_LOCA_BUILDER.toppings
+  if (config.hasFlavorStyles && flavorsEl) {
+    flavorsEl.innerHTML = config.data.flavorStyles
+      .map((f) => `<button type="button" class="paleta-flavor-toggle" data-flavor="${f.id}">${f.label}</button>`)
+      .join("");
+    flavorsEl.addEventListener("click", (e) => {
+      const btn = e.target.closest(".paleta-flavor-toggle");
+      if (!btn) return;
+      state.flavor = btn.dataset.flavor;
+      flavorsEl.querySelectorAll(".paleta-flavor-toggle").forEach((b) => b.classList.toggle("is-selected", b === btn));
+      render();
+    });
+  }
+
+  toppingsEl.innerHTML = config.data.toppings
     .map(
       (t) =>
         `<button type="button" class="topping-toggle" data-topping="${t.id}">
@@ -27,17 +49,6 @@ function initBuilder() {
         </button>`
     )
     .join("");
-
-  flavorsEl.addEventListener("click", (e) => {
-    const btn = e.target.closest(".paleta-flavor-toggle");
-    if (!btn) return;
-    state.flavor = btn.dataset.flavor;
-    flavorsEl.querySelectorAll(".paleta-flavor-toggle").forEach((b) => {
-      b.classList.toggle("is-selected", b === btn);
-    });
-    renderSummary(state);
-  });
-
   toppingsEl.addEventListener("click", (e) => {
     const btn = e.target.closest(".topping-toggle");
     if (!btn) return;
@@ -49,33 +60,49 @@ function initBuilder() {
       state.toppings.add(id);
       btn.classList.add("is-selected");
     }
-    renderSummary(state);
+    render();
   });
 
-  renderSummary(state);
-}
+  function render() {
+    nameEl.textContent = config.hasFlavorStyles
+      ? state.flavor
+        ? config.data.flavorStyles.find((f) => f.id === state.flavor).label + " " + config.itemName
+        : "Pick a flavor style"
+      : config.itemName;
 
-function renderSummary(state) {
-  const nameEl = document.getElementById("builder-flavor-name");
-  const listEl = document.getElementById("builder-summary-list");
-  const priceEl = document.getElementById("builder-price");
-  if (!nameEl || !listEl || !priceEl) return;
+    if (state.toppings.size === 0) {
+      listEl.innerHTML = '<span class="empty-hint">No toppings yet — tap a few above.</span>';
+    } else {
+      listEl.innerHTML = Array.from(state.toppings)
+        .map((id) => {
+          const t = config.data.toppings.find((tp) => tp.id === id);
+          return `<span class="builder-summary-chip">${t.emoji} ${t.label}</span>`;
+        })
+        .join("");
+    }
 
-  const flavorLabel = state.flavor
-    ? PALETA_LOCA_BUILDER.flavorStyles.find((f) => f.id === state.flavor).label + " Paleta Loca"
-    : "Pick a flavor style";
-  nameEl.textContent = flavorLabel;
-
-  if (state.toppings.size === 0) {
-    listEl.innerHTML = '<span class="empty-hint">No toppings yet — tap a few above.</span>';
-  } else {
-    listEl.innerHTML = Array.from(state.toppings)
-      .map((id) => {
-        const t = PALETA_LOCA_BUILDER.toppings.find((tp) => tp.id === id);
-        return `<span class="builder-summary-chip">${t.emoji} ${t.label}</span>`;
-      })
-      .join("");
+    priceEl.textContent = `$${config.data.basePrice.toFixed(2)}`;
   }
 
-  priceEl.textContent = `$${PALETA_LOCA_BUILDER.basePrice.toFixed(2)}`;
+  render();
+}
+
+function initBuilderTabs() {
+  const tabs = document.querySelectorAll("[data-builder-tab]");
+  const panels = document.querySelectorAll("[data-builder-panel]");
+  if (!tabs.length) return;
+
+  tabs.forEach((tab) => {
+    tab.addEventListener("click", () => {
+      const targetId = tab.dataset.builderTab;
+      tabs.forEach((t) => {
+        const isActive = t === tab;
+        t.classList.toggle("is-active", isActive);
+        t.setAttribute("aria-selected", String(isActive));
+      });
+      panels.forEach((p) => {
+        p.hidden = p.id !== targetId;
+      });
+    });
+  });
 }

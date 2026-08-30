@@ -335,31 +335,58 @@ const PALETA_LOCA_BUILDER = {
   ]
 };
 
+// Shared gummy options used by both the Arizona Loca and Manzana Loca builders.
+const LOCA_GUMMIES = [
+  { id: "worms", emoji: "🐛", label: "Worms" },
+  { id: "apple-rings", emoji: "🍏", label: "Apple Rings" },
+  { id: "peach-rings", emoji: "🍑", label: "Peach Rings" },
+  { id: "skwinkles", emoji: "🍭", label: "Skwinkles" },
+  { id: "mangitos", emoji: "🥭", label: "Mangitos" }
+];
+
+const ARIZONA_LOCA_BUILDER = {
+  basePrice: 10.38,
+  toppings: LOCA_GUMMIES
+};
+
+const MANZANA_LOCA_BUILDER = {
+  basePrice: 12.33,
+  toppings: [
+    { id: "chamoy", emoji: "🍯", label: "Chamoy" },
+    { id: "watermelon", emoji: "🍉", label: "Watermelon" },
+    { id: "mango", emoji: "🥭", label: "Mango" },
+    { id: "jabalina", emoji: "🍬", label: "Jabalina" },
+    ...LOCA_GUMMIES
+  ]
+};
+
 const BUSINESS_INFO = {
   name: "Paletería Los Freseros",
   address: "7985 Highway 9, Ben Lomond, CA 95005",
-  phone: "(831) 750-0477",
-  phoneHref: "tel:+18317500477",
+  phone: "(831) 833-5370",
+  phoneHref: "tel:+18318335370",
+  email: "plosfreseros7985@gmail.com",
+  emailHref: "mailto:plosfreseros7985@gmail.com",
   orderUrl: "https://www.doordash.com/store/paleteria-los-freseros-ben-lomond-49023325/114671147/",
   hours: [
-    { day: "Monday", time: "11:15 AM – 9:30 PM" },
-    { day: "Tuesday", time: "11:15 AM – 9:30 PM" },
-    { day: "Wednesday", time: "11:15 AM – 9:30 PM" },
-    { day: "Thursday", time: "11:15 AM – 9:30 PM" },
-    { day: "Friday", time: "11:15 AM – 10:00 PM" },
-    { day: "Saturday", time: "11:15 AM – 10:00 PM" },
-    { day: "Sunday", time: "11:15 AM – 9:30 PM" }
+    { day: "Monday", time: "11:00 AM – 10:00 PM" },
+    { day: "Tuesday", time: "11:00 AM – 10:00 PM" },
+    { day: "Wednesday", time: "11:00 AM – 10:00 PM" },
+    { day: "Thursday", time: "11:00 AM – 10:00 PM" },
+    { day: "Friday", time: "11:00 AM – 11:00 PM" },
+    { day: "Saturday", time: "11:00 AM – 11:00 PM" },
+    { day: "Sunday", time: "11:00 AM – 10:00 PM" }
   ],
   // Same schedule as `hours` above, in 24-hour minutes-from-midnight for live open/closed checks.
   // Keep in sync with `hours` if the schedule ever changes.
   hoursMinutes: {
-    0: { open: 11 * 60 + 15, close: 21 * 60 + 30 }, // Sunday
-    1: { open: 11 * 60 + 15, close: 21 * 60 + 30 }, // Monday
-    2: { open: 11 * 60 + 15, close: 21 * 60 + 30 }, // Tuesday
-    3: { open: 11 * 60 + 15, close: 21 * 60 + 30 }, // Wednesday
-    4: { open: 11 * 60 + 15, close: 21 * 60 + 30 }, // Thursday
-    5: { open: 11 * 60 + 15, close: 22 * 60 }, // Friday
-    6: { open: 11 * 60 + 15, close: 22 * 60 } // Saturday
+    0: { open: 11 * 60, close: 22 * 60 }, // Sunday
+    1: { open: 11 * 60, close: 22 * 60 }, // Monday
+    2: { open: 11 * 60, close: 22 * 60 }, // Tuesday
+    3: { open: 11 * 60, close: 22 * 60 }, // Wednesday
+    4: { open: 11 * 60, close: 22 * 60 }, // Thursday
+    5: { open: 11 * 60, close: 23 * 60 }, // Friday
+    6: { open: 11 * 60, close: 23 * 60 } // Saturday
   },
   mapEmbedQuery: "7985 Highway 9, Ben Lomond, CA 95005"
 };

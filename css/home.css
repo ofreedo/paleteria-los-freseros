@@ -2,6 +2,36 @@
    Home page specific styles
    ========================================================================== */
 
+/* ---- Gift card promo ribbon ----
+   TODO: once a real gift card photo is supplied, add it as a small thumbnail
+   image before .promo-ribbon-icon (or in place of it) rather than the emoji. */
+.promo-ribbon {
+  background: var(--color-chili);
+  color: var(--color-cream);
+}
+.promo-ribbon-inner {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.6rem;
+  flex-wrap: wrap;
+  padding-block: 0.55rem;
+  text-align: center;
+  font-size: 0.85rem;
+  font-weight: 600;
+}
+.promo-ribbon-icon { font-size: 1.1rem; line-height: 1; }
+.promo-ribbon-link {
+  font-weight: 700;
+  text-decoration: underline;
+  text-underline-offset: 2px;
+  flex-shrink: 0;
+}
+.promo-ribbon-link:hover { color: var(--color-mango); }
+@media (max-width: 480px) {
+  .promo-ribbon-inner { font-size: 0.8rem; }
+}
+
 /* ---- Hero ---- */
 .hero {
   position: relative;
@@ -268,7 +298,7 @@
 }
 .flavor-content .word-red { color: var(--color-strawberry); }
 .flavor-content .word-mango { color: var(--color-mango); }
-.flavor-content .word-green { color: #7CD98A; }
+.flavor-content .word-green { color: #9AD147; }
 
 /* ---- Menu categories ---- */
 .category-grid {
