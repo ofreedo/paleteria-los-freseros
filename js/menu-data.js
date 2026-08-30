@@ -359,6 +359,22 @@ const MENU_ITEMS = [
     image: "images/horchata_grande.png"
   },
   {
+    id: "agua-de-limon-chia-pepino-sm",
+    name: "Agua de Limón con Chía y Pepino — Small",
+    price: 5.49,
+    category: "bebidas",
+    description: "Lime, cucumber, and chia agua fresca.",
+    image: "images/Agua_de_limon_con_chia_y_pepino.png"
+  },
+  {
+    id: "agua-de-limon-chia-pepino-lg",
+    name: "Agua de Limón con Chía y Pepino — Large",
+    price: 8.49,
+    category: "bebidas",
+    description: "Lime, cucumber, and chia agua fresca.",
+    image: "images/Agua_de_limon_con_chia_y_pepino.png"
+  },
+  {
     id: "italian-soda-sm",
     name: "Italian Soda — Small",
     price: 3.99,
