@@ -382,6 +382,7 @@
 /* ---- Review card ---- */
 .review-card {
   background: var(--color-white);
+  color: var(--text-body);
   border-radius: var(--radius-md);
   padding: var(--space-lg);
   box-shadow: var(--shadow-sm);
@@ -393,6 +394,7 @@
   font-weight: 700;
   font-family: var(--font-body);
   font-size: 0.9rem;
+  color: var(--text-body);
 }
 
 /* ---- Gallery ---- */
