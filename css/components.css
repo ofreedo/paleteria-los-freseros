@@ -331,12 +331,20 @@
   transition: border-color var(--dur-fast) var(--ease-out), transform var(--dur-fast) var(--ease-out), background var(--dur-fast) var(--ease-out);
 }
 .craving-chip .emoji { font-size: 2rem; display: inline-block; }
+.craving-chip .craving-thumb {
+  width: 2.5rem;
+  height: 2.5rem;
+  border-radius: 50%;
+  object-fit: cover;
+  flex-shrink: 0;
+}
 .craving-chip:hover, .craving-chip.is-active {
   border-color: var(--color-strawberry);
   background: var(--color-cream-deep);
   transform: translateY(-4px);
 }
-.craving-chip:hover .emoji {
+.craving-chip:hover .emoji,
+.craving-chip:hover .craving-thumb {
   animation: craving-wiggle 0.5s var(--ease-out);
 }
 @keyframes craving-wiggle {
