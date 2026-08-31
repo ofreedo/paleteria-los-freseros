@@ -165,7 +165,7 @@ const MENU_ITEMS = [
     price: 8.99,
     category: "mangonadas",
     description: "Any water-based ice cream, Tajín, jabalina, and chamoy.",
-    image: "images/menu/diablito.jpg"
+    image: "images/diablito-Mangonada.png"
   },
   {
     id: "diablito-md",
@@ -173,7 +173,7 @@ const MENU_ITEMS = [
     price: 9.99,
     category: "mangonadas",
     description: "Any water-based ice cream, Tajín, jabalina, and chamoy.",
-    image: "images/menu/diablito.jpg"
+    image: "images/diablito-Mangonada.png"
   },
   {
     id: "mangonada-sm",
@@ -439,22 +439,22 @@ const PALETA_LOCA_BUILDER = {
     { id: "cream-base", label: "Cream-Based" }
   ],
   toppings: [
-    { id: "gummies", emoji: "🐻", label: "Gummies" },
-    { id: "tajin", emoji: "🌶️", label: "Tajín" },
-    { id: "miguelito", emoji: "🍋", label: "Miguelito" },
-    { id: "chamoy", emoji: "🍯", label: "Chamoy" },
-    { id: "jabalina", emoji: "🍬", label: "Jabalina" },
+    { id: "gummies", emoji: "🐻", label: "Gummies", image: "images/gummies-bears.png.webp" },
+    { id: "tajin", emoji: "🌶️", label: "Tajín", image: "images/tajin.png.webp" },
+    { id: "miguelito", emoji: "🍋", label: "Miguelito", image: "images/miguelito.jpg" },
+    { id: "chamoy", emoji: "🍯", label: "Chamoy", image: "images/chamoy-v2.png" },
+    { id: "jabalina", emoji: "🍬", label: "Jabalina", image: "images/jabalina-v2.jpg.webp" },
     { id: "fruit", emoji: "🍓", label: "Fresh fruit" }
   ]
 };
 
 // Shared gummy options used by both the Arizona Loca and Manzana Loca builders.
 const LOCA_GUMMIES = [
-  { id: "worms", emoji: "🐛", label: "Worms" },
-  { id: "apple-rings", emoji: "🍏", label: "Apple Rings" },
-  { id: "peach-rings", emoji: "🍑", label: "Peach Rings" },
-  { id: "skwinkles", emoji: "🍭", label: "Skwinkles" },
-  { id: "mangitos", emoji: "🥭", label: "Mangitos" }
+  { id: "worms", emoji: "🐛", label: "Worms", image: "images/worms-gummies.jpg" },
+  { id: "apple-rings", emoji: "🍏", label: "Apple Rings", image: "images/apple-rings.jpg" },
+  { id: "peach-rings", emoji: "🍑", label: "Peach Rings", image: "images/peach-rings.jpg" },
+  { id: "skwinkles", emoji: "🍭", label: "Skwinkles", image: "images/Skwinkles.jpg" },
+  { id: "mangitos", emoji: "🥭", label: "Mangitos", image: "images/71YUgKoZ+DL._SL1200_.jpg" }
 ];
 
 const ARIZONA_LOCA_BUILDER = {
@@ -465,10 +465,10 @@ const ARIZONA_LOCA_BUILDER = {
 const MANZANA_LOCA_BUILDER = {
   basePrice: 9.49,
   toppings: [
-    { id: "chamoy", emoji: "🍯", label: "Chamoy" },
-    { id: "watermelon", emoji: "🍉", label: "Watermelon" },
+    { id: "chamoy", emoji: "🍯", label: "Chamoy", image: "images/chamoy-v2.png" },
+    { id: "watermelon", emoji: "🍉", label: "Watermelon", image: "images/watermelon.png" },
     { id: "mango", emoji: "🥭", label: "Mango" },
-    { id: "jabalina", emoji: "🍬", label: "Jabalina" },
+    { id: "jabalina", emoji: "🍬", label: "Jabalina", image: "images/jabalina-v2.jpg.webp" },
     ...LOCA_GUMMIES
   ]
 };

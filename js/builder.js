@@ -42,12 +42,14 @@ function initBuilder(config) {
   }
 
   toppingsEl.innerHTML = config.data.toppings
-    .map(
-      (t) =>
-        `<button type="button" class="topping-toggle" data-topping="${t.id}">
-          <span class="emoji" aria-hidden="true">${t.emoji}</span>${t.label}
-        </button>`
-    )
+    .map((t) => {
+      const mediaHtml = t.image
+        ? `<img class="topping-thumb" src="${t.image}" alt="" aria-hidden="true">`
+        : `<span class="emoji" aria-hidden="true">${t.emoji}</span>`;
+      return `<button type="button" class="topping-toggle" data-topping="${t.id}">
+          ${mediaHtml}${t.label}
+        </button>`;
+    })
     .join("");
   toppingsEl.addEventListener("click", (e) => {
     const btn = e.target.closest(".topping-toggle");
