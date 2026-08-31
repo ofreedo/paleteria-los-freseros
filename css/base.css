@@ -188,6 +188,13 @@ h3, .h3 {
   background: var(--color-mango-dark);
   box-shadow: var(--shadow-md);
 }
+.bg-mango .btn-primary {
+  background: var(--color-choc);
+  color: var(--color-cream);
+}
+.bg-mango .btn-primary:hover {
+  background: var(--color-ink);
+}
 
 .btn-secondary {
   background: transparent;

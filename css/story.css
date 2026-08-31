@@ -61,6 +61,11 @@
 .pillar .emoji { font-size: 2.25rem; display: block; margin-bottom: 0.5rem; }
 .pillar h3 { margin-bottom: 0.35rem; }
 .pillar p { font-size: 0.9rem; color: var(--text-muted); }
+.bg-tropical .pillar p,
+.bg-chili .pillar p,
+.bg-choc .pillar p {
+  color: rgba(255,246,228,0.85);
+}
 
 .story-gallery-strip {
   display: grid;
