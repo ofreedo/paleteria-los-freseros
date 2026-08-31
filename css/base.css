@@ -135,6 +135,21 @@ h3, .h3 {
 .bg-choc { background: var(--color-choc); color: var(--color-cream); }
 .bg-chili { background: var(--color-chili); color: var(--color-cream); }
 .bg-tropical { background: var(--color-tropical); color: var(--color-cream); }
+.bg-mango { background: var(--color-mango); color: var(--color-choc); }
+
+.bg-choc .eyebrow,
+.bg-chili .eyebrow,
+.bg-tropical .eyebrow,
+.bg-mango .eyebrow {
+  color: inherit;
+}
+.bg-choc .lead,
+.bg-chili .lead,
+.bg-tropical .lead,
+.bg-mango .lead {
+  color: inherit;
+  opacity: 0.85;
+}
 
 .visually-hidden {
   position: absolute;
