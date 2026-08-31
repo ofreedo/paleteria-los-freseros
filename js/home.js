@@ -52,17 +52,30 @@ function renderPreview() {
   el.innerHTML = picks.map(productCard).join("");
 }
 
+const CATEGORY_TILE_IMAGES = {
+  paletas: "images/Paleta Loca.png",
+  nieves: "images/waffle-cone-three-scoops.png",
+  mangonadas: "images/Mangonada.png",
+  frutas: "images/Fresas_con_crema.png",
+  antojitos: "images/Maruchan_Loca.png",
+  bebidas: "images/Frappe_de_mazapan.png"
+};
+
 function renderCategories() {
   const el = document.getElementById("category-grid");
   if (!el) return;
-  el.innerHTML = MENU_CATEGORIES.map(
-    (cat) => `
+  el.innerHTML = MENU_CATEGORIES.map((cat) => {
+    const image = CATEGORY_TILE_IMAGES[cat.id];
+    const mediaHtml = image
+      ? `<img src="${image}" alt="${cat.name}" loading="lazy">`
+      : `<div class="ph-img" style="position:absolute; inset:0; width:100%; height:100%;">[${cat.name} photo]</div>`;
+    return `
     <a href="menu.html#${cat.id}" class="category-card">
-      <div class="ph-img" style="position:absolute; inset:0; width:100%; height:100%;">[${cat.name} photo]</div>
+      ${mediaHtml}
       <div class="category-card-body">
         <h3>${cat.name}</h3>
         <p>${cat.description}</p>
       </div>
-    </a>`
-  ).join("");
+    </a>`;
+  }).join("");
 }
