@@ -142,8 +142,14 @@
   border-radius: var(--radius-lg);
   overflow: hidden;
   height: 280px;
-  background: var(--color-choc);
+  background: var(--color-strawberry);
   isolation: isolate;
+}
+.spotlight-strip .spotlight-copy .badge {
+  background: var(--color-choc);
+}
+.spotlight-strip .spotlight-copy .price {
+  color: var(--color-cream);
 }
 @media (max-width: 560px) {
   .spotlight-strip { height: 340px; }

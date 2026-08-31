@@ -205,11 +205,11 @@ h3, .h3 {
 
 .btn-outline-dark {
   background: transparent;
-  color: var(--color-choc);
-  border-color: var(--color-choc);
+  color: var(--color-tropical-dark);
+  border-color: var(--color-tropical);
 }
 .btn-outline-dark:hover {
-  background: var(--color-choc);
+  background: var(--color-tropical);
   color: var(--color-cream);
 }
 
