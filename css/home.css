@@ -4,7 +4,7 @@
 
 /* ---- Gift card promo ribbon ----
    TODO: once a real gift card photo is supplied, add it as a small thumbnail
-   image before .promo-ribbon-icon (or in place of it) rather than the emoji. */
+   image before .promo-ribbon-icon (or in place of it) rather than the icon. */
 .promo-ribbon {
   background: var(--color-chili);
   color: var(--color-cream);
@@ -13,23 +13,39 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  gap: 0.6rem;
+  gap: 0.75rem;
   flex-wrap: wrap;
-  padding-block: 0.55rem;
+  padding-block: 0.6rem;
   text-align: center;
-  font-size: 0.85rem;
+  font-size: 0.9rem;
   font-weight: 600;
 }
-.promo-ribbon-icon { font-size: 1.1rem; line-height: 1; }
-.promo-ribbon-link {
-  font-weight: 700;
-  text-decoration: underline;
-  text-underline-offset: 2px;
+.promo-ribbon-icon {
+  display: inline-flex;
   flex-shrink: 0;
+  width: 1.15rem;
+  height: 1.15rem;
+  color: var(--color-mango);
 }
-.promo-ribbon-link:hover { color: var(--color-mango); }
+.promo-ribbon-icon svg { width: 100%; height: 100%; }
+.promo-ribbon-link {
+  flex-shrink: 0;
+  display: inline-flex;
+  align-items: center;
+  background: var(--color-cream);
+  color: var(--color-chili);
+  font-weight: 700;
+  font-size: 0.8rem;
+  padding: 0.3em 0.9em;
+  border-radius: var(--radius-pill);
+  transition: background var(--dur-fast) var(--ease-out), transform var(--dur-fast) var(--ease-out);
+}
+.promo-ribbon-link:hover {
+  background: var(--color-mango);
+  transform: translateY(-1px);
+}
 @media (max-width: 480px) {
-  .promo-ribbon-inner { font-size: 0.8rem; }
+  .promo-ribbon-inner { font-size: 0.82rem; }
 }
 
 /* ---- Hero ---- */
