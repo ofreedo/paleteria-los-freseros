@@ -307,7 +307,8 @@
   .craving-grid {
     grid-auto-flow: column;
     grid-template-columns: none;
-    grid-auto-columns: 42%;
+    grid-auto-columns: 38%;
+    gap: var(--space-md);
     overflow-x: auto;
     scroll-snap-type: x mandatory;
     padding-bottom: 0.5rem;
