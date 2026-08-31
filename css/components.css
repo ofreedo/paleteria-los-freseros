@@ -11,7 +11,8 @@
   font-size: 0.8rem;
   padding: 0.35em 0.9em;
   border-radius: var(--radius-pill);
-  background: rgba(255,255,255,0.14);
+  background: rgba(20,10,6,0.55);
+  backdrop-filter: blur(4px);
 }
 .open-status-badge::before {
   content: "";
@@ -22,7 +23,7 @@
   flex-shrink: 0;
 }
 .open-status-badge.is-open { color: #9AD147; }
-.open-status-badge.is-closed { color: var(--color-mango); }
+.open-status-badge.is-closed { color: var(--color-mango-dark); }
 
 /* Light-background variant, e.g. on cream sections */
 .open-status-badge.on-light {

@@ -480,7 +480,6 @@ const BUSINESS_INFO = {
   phoneHref: "tel:+18318335370",
   email: "plosfreseros7985@gmail.com",
   emailHref: "mailto:plosfreseros7985@gmail.com",
-  orderUrl: "https://www.doordash.com/store/paleteria-los-freseros-ben-lomond-49023325/114671147/",
   hours: [
     { day: "Monday", time: "11:00 AM – 10:00 PM" },
     { day: "Tuesday", time: "11:00 AM – 10:00 PM" },

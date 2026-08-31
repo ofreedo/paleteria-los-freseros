@@ -90,7 +90,10 @@
   padding-block: var(--space-2xl) var(--space-xl);
   width: 100%;
 }
-.hero-content .eyebrow { color: var(--color-mango); }
+.hero-content .eyebrow {
+  color: var(--color-cream);
+  text-shadow: 0 2px 12px rgba(0,0,0,0.45);
+}
 .hero-content h1 {
   font-size: var(--fs-hero);
   color: var(--color-cream);
