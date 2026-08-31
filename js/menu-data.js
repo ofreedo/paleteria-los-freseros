@@ -165,7 +165,7 @@ const MENU_ITEMS = [
     price: 8.99,
     category: "mangonadas",
     description: "Any water-based ice cream, Tajín, jabalina, and chamoy.",
-    image: "images/diablito-Mangonada.png"
+    image: "images/diablito-Mangonada-v2.png"
   },
   {
     id: "diablito-md",
@@ -173,7 +173,7 @@ const MENU_ITEMS = [
     price: 9.99,
     category: "mangonadas",
     description: "Any water-based ice cream, Tajín, jabalina, and chamoy.",
-    image: "images/diablito-Mangonada.png"
+    image: "images/diablito-Mangonada-v2.png"
   },
   {
     id: "mangonada-sm",
@@ -254,7 +254,7 @@ const MENU_ITEMS = [
     price: 10.99,
     category: "frutas",
     description: "Seasonal fruit (typically mango, strawberries, green apple) covered in a house-made sweet cream.",
-    image: "images/b1143db917bdeeac430463f0147e3ead.jpeg"
+    image: "images/bionico.png"
   },
 
   // ---- Antojitos ----
