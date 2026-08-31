@@ -69,7 +69,9 @@
 .bg-tropical .pillar p,
 .bg-chili .pillar p,
 .bg-choc .pillar p {
-  color: rgba(255,246,228,0.85);
+  color: rgba(255,246,228,0.95);
+  font-size: 1.05rem;
+  font-weight: 500;
 }
 
 .story-gallery-strip {
