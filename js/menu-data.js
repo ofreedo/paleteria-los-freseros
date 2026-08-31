@@ -246,7 +246,7 @@ const MENU_ITEMS = [
     price: 9.99,
     category: "frutas",
     description: "Any fruit available, lime, Tajín, jabalina, and chamoy.",
-    image: "images/739312568_1499884337942383_3169866657931373353_n.jpg"
+    image: "images/739312568_1499884337942383_3169866657931373353_n.jpg-v2.png"
   },
   {
     id: "bionico",
@@ -281,7 +281,7 @@ const MENU_ITEMS = [
     category: "antojitos",
     description: "Tostilocos with any chips, plus elote.",
     badge: "Best Seller",
-    image: "images/737383685_2064433927614981_448211206417074020_n.jpg"
+    image: "images/tostiloco.png"
   },
   {
     id: "crepes",

@@ -141,7 +141,7 @@
   position: relative;
   border-radius: var(--radius-lg);
   overflow: hidden;
-  height: 280px;
+  height: 340px;
   background: var(--color-strawberry);
   isolation: isolate;
 }
@@ -159,10 +159,10 @@
   inset: 0;
   display: flex;
   align-items: center;
-  gap: var(--space-lg);
-  max-width: 640px;
+  gap: var(--space-xl);
+  max-width: 1100px;
   margin-inline: auto;
-  padding: var(--space-lg);
+  padding: var(--space-xl) var(--space-2xl);
   opacity: 0;
   transition: opacity 0.6s var(--ease-out);
   pointer-events: none;
@@ -176,7 +176,7 @@
 }
 .spotlight-media {
   flex-shrink: 0;
-  width: 160px;
+  width: 260px;
   border-radius: var(--radius-md);
   overflow: hidden;
   aspect-ratio: 1/1;
@@ -185,19 +185,19 @@
   .spotlight-media { width: 120px; }
 }
 .spotlight-media img { width: 100%; height: 100%; object-fit: cover; }
-.spotlight-copy { color: var(--color-cream); min-width: 0; }
-.spotlight-copy .badge { margin-bottom: 0.6rem; }
-.spotlight-copy h3 { color: var(--color-cream); margin-bottom: 0.5rem; }
+.spotlight-copy { color: var(--color-cream); min-width: 0; flex: 1; max-width: 480px; }
+.spotlight-copy .badge { margin-bottom: 0.75rem; }
+.spotlight-copy h3 { color: var(--color-cream); margin-bottom: 0.6rem; font-size: clamp(1.5rem, 2.4vw, 2.1rem); }
 .spotlight-copy p {
-  font-size: 0.92rem;
+  font-size: 1.05rem;
   line-height: 1.55;
-  color: rgba(255,246,228,0.8);
+  color: rgba(255,246,228,0.85);
   display: -webkit-box;
-  -webkit-line-clamp: 2;
+  -webkit-line-clamp: 3;
   -webkit-box-orient: vertical;
   overflow: hidden;
 }
-.spotlight-copy .price { font-family: var(--font-display); font-size: 1.15rem; color: var(--color-mango); font-weight: 700; margin-top: 0.65rem; }
+.spotlight-copy .price { font-family: var(--font-display); font-size: 1.5rem; color: var(--color-mango); font-weight: 700; margin-top: 0.85rem; }
 
 .spotlight-dots {
   position: absolute;
