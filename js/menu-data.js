@@ -83,7 +83,7 @@ const MENU_ITEMS = [
     price: 13.49,
     category: "nieves",
     description: "Three scoops of ice cream, banana or Gansito, chocolate, whipped cream, and a cherry.",
-    image: "images/739281514_1051278033965727_3295791141335479555_n.jpg"
+    image: "images/sundae.png"
   },
   {
     id: "ice-cream-pints",
@@ -234,6 +234,13 @@ const MENU_ITEMS = [
     image: "images/Fresas_con_crema.png"
   },
   {
+    id: "caja-fresas-congeladas",
+    name: "Caja Fresas Congeladas",
+    category: "frutas",
+    description: "Frozen strawberries in a box, topped with sweet cream and a wafer straw. One regular size.",
+    image: "images/caja-fresas-congeladas.png"
+  },
+  {
     id: "coctel-de-frutas",
     name: "Coctel de Frutas",
     price: 9.99,
@@ -298,7 +305,7 @@ const MENU_ITEMS = [
     price: 5.49,
     category: "antojitos",
     description: "Mayo, cheese, chile, lime.",
-    image: "images/menu/elote.jpg"
+    image: "images/elote.png"
   },
   {
     id: "elote-lg",
@@ -306,7 +313,7 @@ const MENU_ITEMS = [
     price: 7.49,
     category: "antojitos",
     description: "Mayo, cheese, chile, lime.",
-    image: "images/menu/elote.jpg"
+    image: "images/elote.png"
   },
   {
     id: "tosti-elote",
