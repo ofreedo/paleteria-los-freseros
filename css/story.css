@@ -11,6 +11,11 @@
   background: var(--color-choc);
 }
 .story-hero .ph-img { position: absolute; inset: 0; width: 100%; height: 100%; font-size: 0; }
+.story-hero-video video {
+  position: absolute; inset: 0;
+  width: 100%; height: 100%;
+  object-fit: cover;
+}
 .story-hero::before {
   content: "";
   position: absolute; inset: 0;
@@ -76,3 +81,15 @@
   .story-gallery-strip { grid-template-columns: repeat(2, 1fr); }
 }
 .story-gallery-strip .g-item { aspect-ratio: 3/4; }
+
+.story-gallery-video {
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  aspect-ratio: 16/9;
+  box-shadow: var(--shadow-md);
+}
+.story-gallery-video video {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}

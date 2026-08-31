@@ -4,6 +4,7 @@ document.addEventListener("DOMContentLoaded", () => {
   initMobileNav();
   initScrollReveal();
   initHeaderShadowOnScroll();
+  initReducedMotionVideo();
 });
 
 function initMobileNav() {
@@ -56,4 +57,15 @@ function initHeaderShadowOnScroll() {
   };
   window.addEventListener("scroll", onScroll, { passive: true });
   onScroll();
+}
+
+function initReducedMotionVideo() {
+  const video = document.querySelector(".story-hero-video video");
+  if (!video) return;
+  if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
+    video.removeAttribute("autoplay");
+    video.removeAttribute("loop");
+    video.pause();
+    video.currentTime = 0;
+  }
 }
