@@ -1,0 +1,295 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Paletería Los Freseros — TV Menu Slideshow</title>
+
+<!--
+  In-store TV slideshow. Not linked from site navigation — open this file
+  directly (or via the site's URL) full-screen on the TV's browser.
+
+  Pulls live from js/menu-data.js so it never drifts from the real menu.
+  Collapses items that share the same photo (e.g. size variants) into a
+  single slide, showing all matching prices together.
+
+  To update the loop speed, change SLIDE_DURATION_MS below.
+-->
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,600;9..144,700;9..144,900&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+<link rel="stylesheet" href="css/tokens.css">
+
+<style>
+  * { box-sizing: border-box; }
+  html, body {
+    margin: 0;
+    padding: 0;
+    width: 100vw;
+    height: 100vh;
+    overflow: hidden;
+    background: var(--color-choc);
+    font-family: var(--font-body);
+  }
+
+  .slideshow {
+    position: relative;
+    width: 100vw;
+    height: 100vh;
+  }
+
+  .slide {
+    position: absolute;
+    inset: 0;
+    opacity: 0;
+    transition: opacity 900ms ease-in-out;
+  }
+  .slide.is-active {
+    opacity: 1;
+    z-index: 1;
+  }
+
+  .slide-media {
+    position: absolute;
+    inset: 0;
+  }
+  .slide-media img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+  .slide-media::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(0deg, rgba(20,10,6,0.92) 0%, rgba(20,10,6,0.55) 32%, rgba(20,10,6,0.05) 60%);
+  }
+
+  .slide-content {
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    padding: 3.5vh 5vw 5vh;
+    color: var(--color-cream);
+  }
+
+  .slide-category {
+    display: inline-block;
+    font-size: 1.6vw;
+    font-weight: 700;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--color-mango);
+    margin-bottom: 0.6vh;
+  }
+
+  .slide-name {
+    font-family: var(--font-display);
+    font-weight: 700;
+    font-size: 6.5vw;
+    line-height: 1.02;
+    margin: 0 0 1.4vh;
+    text-shadow: 0 6px 30px rgba(0,0,0,0.4);
+  }
+
+  .slide-description {
+    font-size: 1.85vw;
+    font-weight: 500;
+    max-width: 62vw;
+    line-height: 1.4;
+    color: rgba(255,246,228,0.92);
+    margin: 0 0 2vh;
+  }
+
+  .slide-prices {
+    display: flex;
+    gap: 1.2vw;
+    flex-wrap: wrap;
+  }
+  .slide-price-chip {
+    font-family: var(--font-display);
+    font-weight: 700;
+    font-size: 2.4vw;
+    background: var(--color-strawberry);
+    color: var(--color-cream);
+    padding: 0.5vh 1.6vw;
+    border-radius: 999px;
+  }
+  .slide-price-chip .price-label {
+    font-family: var(--font-body);
+    font-weight: 600;
+    font-size: 0.55em;
+    opacity: 0.85;
+    margin-right: 0.4em;
+  }
+
+  .badge {
+    display: inline-block;
+    background: var(--color-chili);
+    color: var(--color-cream);
+    font-weight: 700;
+    font-size: 1.4vw;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+    padding: 0.6vh 1.3vw;
+    border-radius: 999px;
+    margin-bottom: 1.6vh;
+  }
+
+  .brand-corner {
+    position: absolute;
+    top: 3vh;
+    right: 4vw;
+    z-index: 5;
+    display: flex;
+    align-items: center;
+    gap: 0.9vw;
+    color: var(--color-cream);
+    text-shadow: 0 2px 12px rgba(0,0,0,0.5);
+  }
+  .brand-corner img {
+    width: 4.5vw;
+    height: 4.5vw;
+    max-width: 64px;
+    max-height: 64px;
+    border-radius: 50%;
+  }
+  .brand-corner-text {
+    font-family: var(--font-display);
+    font-weight: 700;
+    font-size: 1.6vw;
+    line-height: 1.1;
+  }
+
+  .progress-track {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 6px;
+    background: rgba(255,255,255,0.15);
+    z-index: 5;
+  }
+  .progress-fill {
+    height: 100%;
+    width: 0%;
+    background: var(--color-mango);
+  }
+  .progress-fill.is-animating {
+    transition: width linear;
+  }
+</style>
+</head>
+<body>
+
+<div class="brand-corner">
+  <img src="images/logo.png" alt="">
+  <span class="brand-corner-text">Paletería<br>Los Freseros</span>
+</div>
+
+<div class="slideshow" id="slideshow"></div>
+
+<div class="progress-track">
+  <div class="progress-fill" id="progress-fill"></div>
+</div>
+
+<script src="js/menu-data.js"></script>
+<script>
+  const SLIDE_DURATION_MS = 6000;
+
+  function moneyfmt(n) {
+    return `$${n.toFixed(2)}`;
+  }
+
+  function hasRealPhoto(item) {
+    return !!item.image && !item.image.startsWith("images/menu/");
+  }
+
+  // Collapse items that share the same photo into a single slide.
+  function buildSlides() {
+    const byImage = new Map();
+    MENU_ITEMS.filter(hasRealPhoto).forEach((item) => {
+      if (!byImage.has(item.image)) byImage.set(item.image, []);
+      byImage.get(item.image).push(item);
+    });
+
+    const slides = [];
+    byImage.forEach((items, image) => {
+      const category = MENU_CATEGORIES.find((c) => c.id === items[0].category);
+      // Split each name at the last " — " to separate a base name from a size/variant label.
+      const parts = items.map((i) => {
+        const splitAt = i.name.lastIndexOf("—");
+        return splitAt === -1
+          ? { base: i.name.trim(), variant: "" }
+          : { base: i.name.slice(0, splitAt).replace(/—$/, "").trim(), variant: i.name.slice(splitAt + 1).trim() };
+      });
+      // Use the shortest base (the one with no variant, if any item has none) as the slide title.
+      const baseName = parts.reduce((shortest, p) => (p.base.length < shortest.length ? p.base : shortest), parts[0].base);
+      const description = items[0].description;
+      const badge = items.find((i) => i.badge)?.badge;
+      const prices = items
+        .filter((i) => typeof i.price === "number")
+        .map((i, idx) => ({ label: parts[idx].variant, price: i.price }));
+
+      slides.push({ image, name: baseName, description, category: category?.name, badge, prices });
+    });
+
+    return slides;
+  }
+
+  function renderSlide(slide, index) {
+    const priceHtml = slide.prices.length
+      ? `<div class="slide-prices">${slide.prices
+          .map(
+            (p) =>
+              `<span class="slide-price-chip">${p.label ? `<span class="price-label">${p.label}</span>` : ""}${moneyfmt(p.price)}</span>`
+          )
+          .join("")}</div>`
+      : "";
+    return `
+      <div class="slide" data-index="${index}">
+        <div class="slide-media"><img src="${slide.image}" alt="${slide.name}"></div>
+        <div class="slide-content">
+          ${slide.badge ? `<span class="badge">${slide.badge}</span><br>` : ""}
+          <p class="slide-category">${slide.category || ""}</p>
+          <h1 class="slide-name">${slide.name}</h1>
+          <p class="slide-description">${slide.description}</p>
+          ${priceHtml}
+        </div>
+      </div>`;
+  }
+
+  function initSlideshow() {
+    const slides = buildSlides();
+    const el = document.getElementById("slideshow");
+    const fill = document.getElementById("progress-fill");
+    el.innerHTML = slides.map(renderSlide).join("");
+
+    const slideEls = el.querySelectorAll(".slide");
+    let current = 0;
+
+    function showSlide(index) {
+      slideEls.forEach((s, i) => s.classList.toggle("is-active", i === index));
+      fill.classList.remove("is-animating");
+      fill.style.transition = "none";
+      fill.style.width = "0%";
+      // Force reflow so the transition restarts cleanly on every slide.
+      void fill.offsetWidth;
+      fill.style.transition = `width ${SLIDE_DURATION_MS}ms linear`;
+      fill.style.width = "100%";
+    }
+
+    showSlide(current);
+    setInterval(() => {
+      current = (current + 1) % slideEls.length;
+      showSlide(current);
+    }, SLIDE_DURATION_MS);
+  }
+
+  document.addEventListener("DOMContentLoaded", initSlideshow);
+</script>
+</body>
+</html>

@@ -435,8 +435,13 @@ const CRAVING_FILTERS = [
 const PALETA_LOCA_BUILDER = {
   basePrice: 7.99,
   flavorStyles: [
-    { id: "fruit-base", label: "Fruit-Based" },
-    { id: "cream-base", label: "Cream-Based" }
+    { id: "limon", label: "Limón" },
+    { id: "watermelon", label: "Watermelon" },
+    { id: "guava", label: "Guava" },
+    { id: "pineapple", label: "Pineapple" },
+    { id: "strawberry", label: "Strawberry" },
+    { id: "tamarind", label: "Tamarind" },
+    { id: "bubble-gum", label: "Bubble Gum" }
   ],
   toppings: [
     { id: "gummies", emoji: "🐻", label: "Gummies", image: "images/gummies-bears.png.webp" },
@@ -459,7 +464,17 @@ const LOCA_GUMMIES = [
 
 const ARIZONA_LOCA_BUILDER = {
   basePrice: 7.99,
-  toppings: LOCA_GUMMIES
+  flavorStyles: [
+    { id: "mango", label: "Mango" },
+    { id: "watermelon", label: "Watermelon" },
+    { id: "kiwi-strawberry", label: "Kiwi-and-Strawberry" }
+  ],
+  toppings: [
+    { id: "fresh-watermelon", emoji: "🍉", label: "Fresh Watermelon", image: "images/watermelon.png" },
+    { id: "fresh-mango", emoji: "🥭", label: "Fresh Mango" },
+    { id: "large-peanuts", emoji: "🥜", label: "Large Peanuts" },
+    ...LOCA_GUMMIES
+  ]
 };
 
 const MANZANA_LOCA_BUILDER = {

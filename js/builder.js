@@ -7,7 +7,7 @@ document.addEventListener("DOMContentLoaded", () => {
     initBuilder({ rootId: "paleta-builder", data: PALETA_LOCA_BUILDER, itemName: "Paleta Loca", hasFlavorStyles: true });
   }
   if (typeof ARIZONA_LOCA_BUILDER !== "undefined") {
-    initBuilder({ rootId: "arizona-builder", data: ARIZONA_LOCA_BUILDER, itemName: "Arizona Loca" });
+    initBuilder({ rootId: "arizona-builder", data: ARIZONA_LOCA_BUILDER, itemName: "Arizona Loca", hasFlavorStyles: true });
   }
   if (typeof MANZANA_LOCA_BUILDER !== "undefined") {
     initBuilder({ rootId: "manzana-builder", data: MANZANA_LOCA_BUILDER, itemName: "Manzana Loca" });
