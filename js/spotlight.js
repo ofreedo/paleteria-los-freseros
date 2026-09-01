@@ -10,7 +10,7 @@ function initSpotlight() {
   if (!el) return;
 
   // Curated: real photo + genuinely notable (badge, or a signature/best-seller item).
-  const spotlightIds = ["tostielote-mixto", "mangonada-sm", "banana-gansito-split", "coctel-de-frutas"];
+  const spotlightIds = ["tostielote-mixto", "mangonada-sm", "banana-split", "coctel-de-frutas"];
   const items = spotlightIds
     .map((id) => MENU_ITEMS.find((i) => i.id === id))
     .filter((i) => i && i.image && !i.image.startsWith("images/menu/"));

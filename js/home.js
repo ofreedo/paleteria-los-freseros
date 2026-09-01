@@ -47,7 +47,7 @@ function renderFavorites() {
 function renderPreview() {
   const el = document.getElementById("preview-grid");
   if (!el) return;
-  const previewIds = ["fresas-con-crema-sm", "elote-sm", "banana-gansito-split"];
+  const previewIds = ["fresas-con-crema-sm", "elote-sm", "banana-split"];
   const picks = previewIds.map((id) => MENU_ITEMS.find((i) => i.id === id)).filter(Boolean);
   el.innerHTML = picks.map(productCard).join("");
 }

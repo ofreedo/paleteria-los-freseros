@@ -78,12 +78,20 @@ const MENU_ITEMS = [
     image: "images/waffle-cone-three-scoops.png"
   },
   {
-    id: "banana-gansito-split",
-    name: "Banana / Gansito Split",
+    id: "banana-split",
+    name: "Banana Split",
     price: 13.49,
     category: "nieves",
-    description: "Three scoops of ice cream, banana or Gansito, chocolate, whipped cream, and a cherry.",
+    description: "Three scoops of ice cream, banana, chocolate, whipped cream, and a cherry.",
     image: "images/bananna-split.png"
+  },
+  {
+    id: "gansito-split",
+    name: "Gansito Split",
+    price: 13.49,
+    category: "nieves",
+    description: "Three scoops of ice cream, Gansito, chocolate, whipped cream, and a cherry.",
+    image: "images/Gansito-Split.png"
   },
   {
     id: "ice-cream-pints",
@@ -108,22 +116,6 @@ const MENU_ITEMS = [
     category: "nieves",
     description: "Mango ice cream, sweet cream, and whipped cream.",
     image: "images/Mango-cream.png"
-  },
-  {
-    id: "acai-bowl-sm",
-    name: "Açaí Bowl — Small (16 oz)",
-    price: 9.99,
-    category: "nieves",
-    description: "Strawberries, banana, blueberries, granola, and honey.",
-    image: "images/Acai Bowl.png"
-  },
-  {
-    id: "acai-bowl-lg",
-    name: "Açaí Bowl — Large (24 oz)",
-    price: 10.99,
-    category: "nieves",
-    description: "Strawberries, banana, blueberries, granola, and honey.",
-    image: "images/Acai Bowl.png"
   },
   {
     id: "milkshake-sm",
@@ -210,6 +202,22 @@ const MENU_ITEMS = [
   },
 
   // ---- Frutas ----
+  {
+    id: "acai-bowl-sm",
+    name: "Açaí Bowl — Small (16 oz)",
+    price: 9.99,
+    category: "frutas",
+    description: "Strawberries, banana, blueberries, granola, and honey.",
+    image: "images/Acai Bowl.png"
+  },
+  {
+    id: "acai-bowl-lg",
+    name: "Açaí Bowl — Large (24 oz)",
+    price: 10.99,
+    category: "frutas",
+    description: "Strawberries, banana, blueberries, granola, and honey.",
+    image: "images/Acai Bowl.png"
+  },
   {
     id: "fresas-con-crema-sm",
     name: "Fresas con Crema — Small",
