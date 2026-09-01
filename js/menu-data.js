@@ -11,6 +11,15 @@
 const MENU_ITEMS = [
   // ---- Paletas ----
   {
+    id: "paleta-loca",
+    name: "Paleta Loca",
+    price: 7.99,
+    category: "paletas",
+    description: "Choice of paleta, gummies, Tajín, miguelito, chamoy, jabalina, and fruit.",
+    badge: "Fan Favorite",
+    image: "images/Paleta Loca.png"
+  },
+  {
     id: "paleta-guava",
     name: "Paleta de Guava",
     price: 3.50,
@@ -57,15 +66,6 @@ const MENU_ITEMS = [
     category: "paletas",
     description: "Classic Mexican paleta, bubble gum flavor.",
     image: "images/bubble-gum-paleta.png"
-  },
-  {
-    id: "paleta-loca",
-    name: "Paleta Loca",
-    price: 7.99,
-    category: "paletas",
-    description: "Choice of paleta, gummies, Tajín, miguelito, chamoy, jabalina, and fruit.",
-    badge: "Fan Favorite",
-    image: "images/Paleta Loca.png"
   },
 
   // ---- Nieves / Ice Cream ----
