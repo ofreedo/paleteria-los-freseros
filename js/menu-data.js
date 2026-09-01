@@ -227,13 +227,6 @@ const MENU_ITEMS = [
     image: "images/Fresas_con_crema.png"
   },
   {
-    id: "fresas-con-crema-frozen",
-    name: "Fresas con Crema — Frozen Cup",
-    category: "frutas",
-    description: "Frozen strawberries, sweet cream, whipped cream, and a cherry.",
-    image: "images/Fresas_con_crema.png"
-  },
-  {
     id: "caja-fresas-congeladas",
     name: "Caja Fresas Congeladas",
     category: "frutas",
@@ -272,7 +265,7 @@ const MENU_ITEMS = [
     price: 10.50,
     category: "antojitos",
     description: "Any choice of chips, pickled pork, jicama, cucumber, peanuts, chile, and lime.",
-    image: "images/menu/tostilocos.jpg"
+    image: "images/tostiloco.png"
   },
   {
     id: "tostielote-mixto",
@@ -281,7 +274,7 @@ const MENU_ITEMS = [
     category: "antojitos",
     description: "Tostilocos with any chips, plus elote.",
     badge: "Best Seller",
-    image: "images/tostiloco.png"
+    image: "images/menu/tostielote-mixto.jpg"
   },
   {
     id: "crepes",
@@ -305,7 +298,7 @@ const MENU_ITEMS = [
     price: 5.49,
     category: "antojitos",
     description: "Mayo, cheese, chile, lime.",
-    image: "images/elote.png"
+    image: "images/Esquite.png"
   },
   {
     id: "elote-lg",
@@ -313,7 +306,7 @@ const MENU_ITEMS = [
     price: 7.49,
     category: "antojitos",
     description: "Mayo, cheese, chile, lime.",
-    image: "images/elote.png"
+    image: "images/Esquite.png"
   },
   {
     id: "tosti-elote",
