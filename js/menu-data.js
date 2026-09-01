@@ -413,6 +413,22 @@ const MENU_ITEMS = [
     category: "bebidas",
     description: "Choice of blended Gansito, Oreo, Mazapán, coffee (extra Nescafé), or chocolate/caramel, with milk and whipped cream.",
     image: "images/Frappe_de_mazapan.png"
+  },
+  {
+    id: "frapuchino-gansito-sm",
+    name: "Frapuchino de Gansito — Small",
+    price: 8.99,
+    category: "bebidas",
+    description: "Blended Gansito with milk and whipped cream.",
+    image: "images/Frapuchino-de-gansito.png"
+  },
+  {
+    id: "frapuchino-gansito-lg",
+    name: "Frapuchino de Gansito — Large",
+    price: 10.49,
+    category: "bebidas",
+    description: "Blended Gansito with milk and whipped cream.",
+    image: "images/Frapuchino-de-gansito.png"
   }
 ];
 
