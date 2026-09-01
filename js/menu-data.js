@@ -70,54 +70,6 @@ const MENU_ITEMS = [
 
   // ---- Nieves / Ice Cream ----
   {
-    id: "ice-cream-cup-1",
-    name: "Ice Cream Cup — 1 Scoop",
-    price: 4.49,
-    category: "nieves",
-    description: "Choice of flavor in a cup: lime, mango, vanilla, lavender, pistachio, chocolate, cookie dough, rainbow sherbet, strawberry cream, bubble gum, 10-20 caramel, and more.",
-    image: "images/ice-cream-one-scoop.png"
-  },
-  {
-    id: "ice-cream-cup-2",
-    name: "Ice Cream Cup — 2 Scoop",
-    price: 5.49,
-    category: "nieves",
-    description: "Two scoops, choice of flavors, in a cup.",
-    image: "images/ice-cream-two-scoops.png"
-  },
-  {
-    id: "ice-cream-cup-3",
-    name: "Ice Cream Cup — 3 Scoop",
-    price: 7.49,
-    category: "nieves",
-    description: "Three scoops, choice of flavors, in a cup.",
-    image: "images/ice-cream-three-scoops.png"
-  },
-  {
-    id: "ice-cream-waffle-1",
-    name: "Waffle Cone — 1 Scoop",
-    price: 5.99,
-    category: "nieves",
-    description: "One scoop in a fresh waffle cone.",
-    image: "images/waffle-cone-one-scoops.png"
-  },
-  {
-    id: "ice-cream-waffle-2",
-    name: "Waffle Cone — 2 Scoop",
-    price: 6.99,
-    category: "nieves",
-    description: "Two scoops in a fresh waffle cone.",
-    image: "images/waffle-cone-two-scoops.png"
-  },
-  {
-    id: "ice-cream-waffle-3",
-    name: "Waffle Cone — 3 Scoop",
-    price: 8.99,
-    category: "nieves",
-    description: "Three scoops in a fresh waffle cone.",
-    image: "images/waffle-cone-three-scoops.png"
-  },
-  {
     id: "banana-split",
     name: "Banana Split",
     price: 13.49,
@@ -188,6 +140,54 @@ const MENU_ITEMS = [
     category: "nieves",
     description: "Three scoops of ice cream with your choice of toppings.",
     image: "images/sundae-v2.png"
+  },
+  {
+    id: "ice-cream-cup-1",
+    name: "Ice Cream Cup — 1 Scoop",
+    price: 4.49,
+    category: "nieves",
+    description: "Choice of flavor in a cup: lime, mango, vanilla, lavender, pistachio, chocolate, cookie dough, rainbow sherbet, strawberry cream, bubble gum, 10-20 caramel, and more.",
+    image: "images/ice-cream-one-scoop.png"
+  },
+  {
+    id: "ice-cream-cup-2",
+    name: "Ice Cream Cup — 2 Scoop",
+    price: 5.49,
+    category: "nieves",
+    description: "Two scoops, choice of flavors, in a cup.",
+    image: "images/ice-cream-two-scoops.png"
+  },
+  {
+    id: "ice-cream-cup-3",
+    name: "Ice Cream Cup — 3 Scoop",
+    price: 7.49,
+    category: "nieves",
+    description: "Three scoops, choice of flavors, in a cup.",
+    image: "images/ice-cream-three-scoops.png"
+  },
+  {
+    id: "ice-cream-waffle-1",
+    name: "Waffle Cone — 1 Scoop",
+    price: 5.99,
+    category: "nieves",
+    description: "One scoop in a fresh waffle cone.",
+    image: "images/waffle-cone-one-scoops.png"
+  },
+  {
+    id: "ice-cream-waffle-2",
+    name: "Waffle Cone — 2 Scoop",
+    price: 6.99,
+    category: "nieves",
+    description: "Two scoops in a fresh waffle cone.",
+    image: "images/waffle-cone-two-scoops.png"
+  },
+  {
+    id: "ice-cream-waffle-3",
+    name: "Waffle Cone — 3 Scoop",
+    price: 8.99,
+    category: "nieves",
+    description: "Three scoops in a fresh waffle cone.",
+    image: "images/waffle-cone-three-scoops.png"
   },
 
   // ---- Mangonadas ----
