@@ -237,6 +237,7 @@ const MENU_ITEMS = [
   {
     id: "caja-fresas-congeladas",
     name: "Caja Fresas Congeladas",
+    price: 8.49,
     category: "frutas",
     description: "Frozen strawberries in a box, topped with sweet cream and a wafer straw. One regular size.",
     image: "images/caja-fresas-congeladas.png"
@@ -334,7 +335,7 @@ const MENU_ITEMS = [
   },
   {
     id: "chicharrmes",
-    name: "Chicharrmes",
+    name: "Chicharrines",
     price: 2.99,
     category: "antojitos",
     description: "Wheel chicharrón chips covered in lime & chile.",
