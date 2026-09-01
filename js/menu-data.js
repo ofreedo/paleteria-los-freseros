@@ -165,7 +165,7 @@ const MENU_ITEMS = [
     price: 8.99,
     category: "mangonadas",
     description: "Any water-based ice cream, Tajín, jabalina, and chamoy.",
-    image: "images/diablito-Mangonada-v3.png"
+    image: "images/diablito-Mangonada-v4.png"
   },
   {
     id: "diablito-md",
@@ -173,7 +173,7 @@ const MENU_ITEMS = [
     price: 9.99,
     category: "mangonadas",
     description: "Any water-based ice cream, Tajín, jabalina, and chamoy.",
-    image: "images/diablito-Mangonada-v3.png"
+    image: "images/diablito-Mangonada-v4.png"
   },
   {
     id: "mangonada-sm",
