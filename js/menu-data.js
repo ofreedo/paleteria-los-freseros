@@ -314,7 +314,7 @@ const MENU_ITEMS = [
     price: 11.99,
     category: "antojitos",
     description: "Tostitos chips with prepared elote.",
-    image: "images/Esquite.png"
+    image: "images/Tosti-elote.png"
   },
   {
     id: "chicharron-preparado",
