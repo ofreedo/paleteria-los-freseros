@@ -11,12 +11,52 @@
 const MENU_ITEMS = [
   // ---- Paletas ----
   {
-    id: "paleta",
-    name: "Paleta",
+    id: "paleta-guava",
+    name: "Paleta de Guava",
     price: 3.50,
     category: "paletas",
-    description: "Classic Mexican paleta.",
-    image: "images/paleta-regular.png"
+    description: "Classic Mexican paleta, guava flavor.",
+    image: "images/guava-paleta.png"
+  },
+  {
+    id: "paleta-pina",
+    name: "Paleta de Piña",
+    price: 3.50,
+    category: "paletas",
+    description: "Classic Mexican paleta, pineapple flavor.",
+    image: "images/pineapple-paleta.png"
+  },
+  {
+    id: "paleta-fresa",
+    name: "Paleta de Fresa",
+    price: 3.50,
+    category: "paletas",
+    description: "Classic Mexican paleta, strawberry flavor.",
+    image: "images/strawberry-paleta.png"
+  },
+  {
+    id: "paleta-tamarindo",
+    name: "Paleta de Tamarindo",
+    price: 3.50,
+    category: "paletas",
+    description: "Classic Mexican paleta, tamarind flavor.",
+    image: "images/tamrind-paleta.png"
+  },
+  {
+    id: "paleta-sandia",
+    name: "Paleta de Sandía",
+    price: 3.50,
+    category: "paletas",
+    description: "Classic Mexican paleta, watermelon flavor.",
+    image: "images/watermelon-paleta.png"
+  },
+  {
+    id: "paleta-bombon",
+    name: "Paleta de Bombón",
+    price: 3.50,
+    category: "paletas",
+    description: "Classic Mexican paleta, bubble gum flavor.",
+    image: "images/bubble-gum-paleta.png"
   },
   {
     id: "paleta-loca",
