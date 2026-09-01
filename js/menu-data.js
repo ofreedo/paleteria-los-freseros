@@ -99,7 +99,7 @@ const MENU_ITEMS = [
     price: 8.99,
     category: "nieves",
     description: "Mango ice cream, sweet cream, and whipped cream.",
-    image: "images/menu/cremi-mango.jpg"
+    image: "images/Mango-cream.png"
   },
   {
     id: "cremi-mango-lg",
@@ -107,7 +107,7 @@ const MENU_ITEMS = [
     price: 9.99,
     category: "nieves",
     description: "Mango ice cream, sweet cream, and whipped cream.",
-    image: "images/menu/cremi-mango.jpg"
+    image: "images/Mango-cream.png"
   },
   {
     id: "acai-bowl-sm",
