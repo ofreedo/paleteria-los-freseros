@@ -5,6 +5,7 @@ document.addEventListener("DOMContentLoaded", () => {
   initScrollReveal();
   initHeaderShadowOnScroll();
   initReducedMotionVideo();
+  initHeaderHeightVar();
 });
 
 function initMobileNav() {
@@ -67,5 +68,22 @@ function initReducedMotionVideo() {
     video.removeAttribute("loop");
     video.pause();
     video.currentTime = 0;
+  }
+}
+
+// Measures the real rendered header height so sticky elements below it
+// (e.g. the menu page's category toolbar) can stick flush underneath it
+// instead of relying on a guessed pixel value that drifts at different
+// viewport sizes.
+function initHeaderHeightVar() {
+  const header = document.querySelector(".site-header");
+  if (!header) return;
+  const setVar = () => {
+    document.documentElement.style.setProperty("--header-height", `${header.offsetHeight}px`);
+  };
+  setVar();
+  window.addEventListener("resize", setVar);
+  if ("ResizeObserver" in window) {
+    new ResizeObserver(setVar).observe(header);
   }
 }

@@ -12,12 +12,20 @@
 
 .menu-toolbar {
   position: sticky;
-  top: 73px;
+  top: var(--header-height, 73px);
   z-index: 50;
   background: rgba(255, 246, 228, 0.96);
   backdrop-filter: blur(8px);
   border-bottom: 1px solid var(--color-line);
   padding-block: var(--space-sm);
+  border-top: 4px solid;
+  border-image: repeating-linear-gradient(
+    90deg,
+    var(--color-chili) 0 20px,
+    var(--color-mango) 20px 40px,
+    var(--color-tropical) 40px 60px,
+    var(--color-strawberry) 60px 80px
+  ) 4;
 }
 .menu-toolbar-inner {
   display: flex;
