@@ -83,7 +83,7 @@ const MENU_ITEMS = [
     price: 13.49,
     category: "nieves",
     description: "Three scoops of ice cream, banana or Gansito, chocolate, whipped cream, and a cherry.",
-    image: "images/sundae.png"
+    image: "images/bananna-split.png"
   },
   {
     id: "ice-cream-pints",
@@ -91,7 +91,7 @@ const MENU_ITEMS = [
     price: 9.99,
     category: "nieves",
     description: "Homemade mango or lime.",
-    image: "images/menu/ice-cream-pints.jpg"
+    image: "images/ice-cream-Pints.png"
   },
   {
     id: "cremi-mango-sm",
@@ -131,7 +131,7 @@ const MENU_ITEMS = [
     price: 8.99,
     category: "nieves",
     description: "Classic hand-blended milkshake, choice of flavor.",
-    image: "images/menu/milkshake.jpg"
+    image: "images/milkshake-v2.png"
   },
   {
     id: "milkshake-lg",
@@ -139,7 +139,7 @@ const MENU_ITEMS = [
     price: 10.49,
     category: "nieves",
     description: "Classic hand-blended milkshake, choice of flavor.",
-    image: "images/menu/milkshake.jpg"
+    image: "images/milkshake-v2.png"
   },
   {
     id: "sundae-2",
@@ -147,7 +147,7 @@ const MENU_ITEMS = [
     price: 9.99,
     category: "nieves",
     description: "Two scoops of ice cream with your choice of toppings.",
-    image: "images/menu/sundae.jpg"
+    image: "images/sundae-v2.png"
   },
   {
     id: "sundae-3",
@@ -155,7 +155,7 @@ const MENU_ITEMS = [
     price: 11.99,
     category: "nieves",
     description: "Three scoops of ice cream with your choice of toppings.",
-    image: "images/menu/sundae.jpg"
+    image: "images/sundae-v2.png"
   },
 
   // ---- Mangonadas ----
@@ -165,7 +165,7 @@ const MENU_ITEMS = [
     price: 8.99,
     category: "mangonadas",
     description: "Any water-based ice cream, Tajín, jabalina, and chamoy.",
-    image: "images/diablito-Mangonada-v2.png"
+    image: "images/diablito-Mangonada-v3.png"
   },
   {
     id: "diablito-md",
@@ -173,7 +173,7 @@ const MENU_ITEMS = [
     price: 9.99,
     category: "mangonadas",
     description: "Any water-based ice cream, Tajín, jabalina, and chamoy.",
-    image: "images/diablito-Mangonada-v2.png"
+    image: "images/diablito-Mangonada-v3.png"
   },
   {
     id: "mangonada-sm",
@@ -239,7 +239,7 @@ const MENU_ITEMS = [
     price: 9.99,
     category: "frutas",
     description: "Any fruit available, lime, Tajín, jabalina, and chamoy.",
-    image: "images/739312568_1499884337942383_3169866657931373353_n.jpg-v2.png"
+    image: "images/Coctel-de-frutas .png"
   },
   {
     id: "bionico",
@@ -322,7 +322,7 @@ const MENU_ITEMS = [
     price: 11.49,
     category: "antojitos",
     description: "Duro chicharrón with cabbage, onion, tomato, avocado, pickled pork, lime, and salsa.",
-    image: "images/menu/chicharron-preparado.jpg"
+    image: "images/Chicharron-preparado.png"
   },
   {
     id: "chicharrmes",
@@ -330,7 +330,7 @@ const MENU_ITEMS = [
     price: 2.99,
     category: "antojitos",
     description: "Wheel chicharrón chips covered in lime & chile.",
-    image: "images/menu/chicharrmes.jpg"
+    image: "images/Chicharrones.png"
   },
 
   // ---- Bebidas ----
