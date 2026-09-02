@@ -189,6 +189,39 @@
   .progress-fill.is-animating {
     transition: width linear;
   }
+
+  /* Subtle prev/next controls — nearly invisible until hovered/tapped, for
+     manual stepping during setup or on a touch-capable display. Not needed
+     for the normal unattended autoplay loop. */
+  .nav-arrow {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    width: 12vw;
+    max-width: 140px;
+    z-index: 6;
+    display: flex;
+    align-items: center;
+    background: none;
+    opacity: 0;
+    transition: opacity var(--dur-base, 280ms) var(--ease-out, ease);
+  }
+  .nav-arrow:hover,
+  .nav-arrow:focus-visible,
+  .slideshow:hover .nav-arrow {
+    opacity: 0.9;
+  }
+  .nav-arrow.prev { left: 0; justify-content: flex-start; padding-left: 1.5vw; }
+  .nav-arrow.next { right: 0; justify-content: flex-end; padding-right: 1.5vw; }
+  .nav-arrow svg {
+    width: 2.6vw;
+    height: 2.6vw;
+    min-width: 28px;
+    min-height: 28px;
+    color: var(--color-cream);
+    filter: drop-shadow(0 2px 10px rgba(0,0,0,0.6));
+  }
+  .nav-arrow:active svg { transform: scale(0.9); }
 </style>
 </head>
 <body>
@@ -198,7 +231,14 @@
   <span class="brand-corner-text">Paletería<br>Los Freseros</span>
 </div>
 
-<div class="slideshow" id="slideshow"></div>
+<div class="slideshow" id="slideshow">
+  <button type="button" class="nav-arrow prev" id="nav-prev" aria-label="Previous item">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="15 18 9 12 15 6"></polyline></svg>
+  </button>
+  <button type="button" class="nav-arrow next" id="nav-next" aria-label="Next item">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"></polyline></svg>
+  </button>
+</div>
 
 <div class="progress-track">
   <div class="progress-fill" id="progress-fill"></div>
@@ -293,14 +333,16 @@
     const slides = buildSlides();
     const el = document.getElementById("slideshow");
     const fill = document.getElementById("progress-fill");
-    el.innerHTML = slides.map(renderSlide).join("");
+    el.innerHTML += slides.map(renderSlide).join("");
     markPortraitImages(el);
 
     const slideEls = el.querySelectorAll(".slide");
     let current = 0;
+    let timer = null;
 
     function showSlide(index) {
-      slideEls.forEach((s, i) => s.classList.toggle("is-active", i === index));
+      current = (index + slideEls.length) % slideEls.length;
+      slideEls.forEach((s, i) => s.classList.toggle("is-active", i === current));
       fill.classList.remove("is-animating");
       fill.style.transition = "none";
       fill.style.width = "0%";
@@ -310,11 +352,27 @@
       fill.style.width = "100%";
     }
 
+    function startAutoplay() {
+      clearInterval(timer);
+      timer = setInterval(() => showSlide(current + 1), SLIDE_DURATION_MS);
+    }
+
+    // Manual navigation resets the autoplay timer so the display doesn't
+    // jump again a moment after someone steps through it by hand.
+    function goTo(index) {
+      showSlide(index);
+      startAutoplay();
+    }
+
+    document.getElementById("nav-prev").addEventListener("click", () => goTo(current - 1));
+    document.getElementById("nav-next").addEventListener("click", () => goTo(current + 1));
+    document.addEventListener("keydown", (e) => {
+      if (e.key === "ArrowLeft") goTo(current - 1);
+      if (e.key === "ArrowRight") goTo(current + 1);
+    });
+
     showSlide(current);
-    setInterval(() => {
-      current = (current + 1) % slideEls.length;
-      showSlide(current);
-    }, SLIDE_DURATION_MS);
+    startAutoplay();
   }
 
   document.addEventListener("DOMContentLoaded", initSlideshow);
