@@ -61,7 +61,7 @@ const MENU_ITEMS = [
   },
   {
     id: "paleta-bombon",
-    name: "Paleta de Bombón",
+    name: "Paleta de Buble Gum",
     price: 3.50,
     category: "paletas",
     description: "Classic Mexican paleta, bubble gum flavor.",
@@ -235,7 +235,7 @@ const MENU_ITEMS = [
   {
     id: "arizona-loca",
     name: "Arizona Loca",
-    price: 7.99,
+    price: 9.49,
     category: "mangonadas",
     description: "Watermelon-flavored or mango, served on an Arizona can with fruit, gummies, jabalina, chamoy, and miguelito.",
     image: "images/Arizona_loca.png"
@@ -376,7 +376,7 @@ const MENU_ITEMS = [
   {
     id: "chicharrmes",
     name: "Chicharrines",
-    price: 2.99,
+    price: 4.99,
     category: "antojitos",
     description: "Wheel chicharrón chips covered in lime & chile.",
     image: "images/Chicharrones.png"
@@ -521,7 +521,7 @@ const LOCA_GUMMIES = [
 ];
 
 const ARIZONA_LOCA_BUILDER = {
-  basePrice: 7.99,
+  basePrice: 9.49,
   flavorStyles: [
     { id: "mango", label: "Mango" },
     { id: "watermelon", label: "Watermelon" },
