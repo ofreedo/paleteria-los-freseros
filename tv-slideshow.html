@@ -256,13 +256,26 @@
     return !!item.image && !item.image.startsWith("images/menu/");
   }
 
+  // Items excluded from the TV slideshow specifically (client request), even
+  // though they remain on the real menu at menu.html.
+  const SLIDESHOW_EXCLUDED_IDS = new Set([
+    "ice-cream-cup-1",
+    "ice-cream-cup-2",
+    "ice-cream-cup-3",
+    "ice-cream-waffle-1",
+    "ice-cream-waffle-2",
+    "ice-cream-waffle-3"
+  ]);
+
   // Collapse items that share the same photo into a single slide.
   function buildSlides() {
     const byImage = new Map();
-    MENU_ITEMS.filter(hasRealPhoto).forEach((item) => {
-      if (!byImage.has(item.image)) byImage.set(item.image, []);
-      byImage.get(item.image).push(item);
-    });
+    MENU_ITEMS.filter(hasRealPhoto)
+      .filter((item) => !SLIDESHOW_EXCLUDED_IDS.has(item.id))
+      .forEach((item) => {
+        if (!byImage.has(item.image)) byImage.set(item.image, []);
+        byImage.get(item.image).push(item);
+      });
 
     const slides = [];
     byImage.forEach((items, image) => {
