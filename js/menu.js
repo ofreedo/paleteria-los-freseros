@@ -5,6 +5,7 @@ document.addEventListener("DOMContentLoaded", () => {
   renderMenu();
   wireFilterClicks();
   applyInitialFilter();
+  initScrollSpy();
   if (typeof initScrollReveal === "function") initScrollReveal();
 });
 
@@ -66,12 +67,20 @@ function renderMenu() {
   }).join("");
 }
 
+// True once the user has explicitly picked a filter (click, craving link, or
+// deep link) — scroll-spy stops overriding the active chip once this is set,
+// since it must not fight a filter the user actually chose. Note this is
+// separate from the ".is-active" DOM class, which scroll-spy also writes to
+// while this flag is still false.
+let userSelectedFilter = false;
+
 function wireFilterClicks() {
   const bar = document.getElementById("filter-bar");
   if (!bar) return;
   bar.addEventListener("click", (e) => {
     const btn = e.target.closest(".chip-filter");
     if (!btn) return;
+    userSelectedFilter = btn.dataset.filter !== "all";
     setActiveFilter(btn.dataset.filter, { scroll: true });
     history.replaceState(null, "", btn.dataset.filter === "all" ? "menu.html" : `menu.html?craving=${btn.dataset.filter}`);
   });
@@ -117,8 +126,53 @@ function applyInitialFilter() {
   const hash = window.location.hash.replace("#", "");
 
   if (craving && CRAVING_FILTERS.some((c) => c.id === craving)) {
+    userSelectedFilter = true;
     setTimeout(() => setActiveFilter(craving, { scroll: true }), 50);
   } else if (hash && document.getElementById(hash)) {
     setTimeout(() => document.getElementById(hash).scrollIntoView({ behavior: "smooth", block: "start" }), 50);
   }
+}
+
+// Highlights the filter chip for whichever category section is currently in
+// view while scrolling. Only active when "All" is selected — once the user
+// filters down to a specific category/craving, the chip they picked stays
+// highlighted instead of being overridden by scroll position.
+//
+// Uses a throttled scroll listener rather than IntersectionObserver: with a
+// tall page and many sections, IntersectionObserver only re-fires when a
+// *watched element's own* ratio crosses a threshold, so it stops updating
+// once every section is either fully past or fully ahead of the viewport —
+// exactly the case here. Recomputing from live geometry on scroll instead
+// stays correct regardless of scroll distance or speed.
+function initScrollSpy() {
+  const blocks = Array.from(document.querySelectorAll(".menu-category-block"));
+  const toolbar = document.querySelector(".menu-toolbar");
+  if (!blocks.length) return;
+
+  function updateActiveChip() {
+    if (userSelectedFilter) return;
+
+    const lineY = (toolbar?.getBoundingClientRect().bottom || 0) + 20;
+    const current = blocks.reduce((a, b) => {
+      const aTop = a.getBoundingClientRect().top;
+      const bTop = b.getBoundingClientRect().top;
+      return bTop <= lineY && bTop > aTop ? b : a;
+    }, blocks[0]);
+    const categoryId = current.dataset.category;
+    document.querySelectorAll(".chip-filter").forEach((c) => {
+      c.classList.toggle("is-active", c.dataset.filter === categoryId);
+    });
+  }
+
+  let ticking = false;
+  window.addEventListener("scroll", () => {
+    if (ticking) return;
+    ticking = true;
+    requestAnimationFrame(() => {
+      updateActiveChip();
+      ticking = false;
+    });
+  }, { passive: true });
+
+  updateActiveChip();
 }
