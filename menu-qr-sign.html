@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="robots" content="noindex, nofollow">
+<title>Scan for Menu — Print Sign</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,700;9..144,900&family=Plus+Jakarta+Sans:wght@500;600;700&display=swap" rel="stylesheet">
+<style>
+  * { box-sizing: border-box; }
+  html, body {
+    margin: 0;
+    padding: 0;
+    font-family: 'Plus Jakarta Sans', sans-serif;
+    background: #f2f2f2;
+  }
+  .page {
+    width: 8.5in;
+    height: 11in;
+    margin: 0 auto;
+    background: #FFF6E4;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 0.75in;
+  }
+  .eyebrow {
+    font-size: 20px;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: #C62828;
+    margin: 0 0 0.2in;
+  }
+  h1 {
+    font-family: 'Fraunces', serif;
+    font-weight: 900;
+    font-size: 64px;
+    line-height: 1.05;
+    color: #3A2317;
+    margin: 0 0 0.3in;
+  }
+  .qr-box {
+    background: #ffffff;
+    border-radius: 24px;
+    padding: 0.4in;
+    box-shadow: 0 0 0 6px #C62828;
+    margin-bottom: 0.4in;
+  }
+  .qr-box img {
+    display: block;
+    width: 3.5in;
+    height: 3.5in;
+  }
+  .subtext {
+    font-size: 26px;
+    font-weight: 600;
+    color: #3A2317;
+    margin: 0 0 0.15in;
+  }
+  .url {
+    font-size: 20px;
+    font-weight: 500;
+    color: #8a5a2a;
+    margin: 0;
+  }
+  .logo {
+    width: 90px;
+    height: 90px;
+    margin-top: 0.4in;
+  }
+  @media print {
+    body { background: none; }
+    .page { box-shadow: none; margin: 0; }
+    @page { size: letter; margin: 0; }
+  }
+</style>
+</head>
+<body>
+<div class="page">
+  <p class="eyebrow">Paletería Los Freseros</p>
+  <h1>Scan to<br>See Our Menu</h1>
+  <div class="qr-box">
+    <img src="https://api.qrserver.com/v1/create-qr-code/?size=600x600&data=https%3A%2F%2Fpaleterialosfreseros.com%2Fmenu.html" alt="QR code linking to the Paleteria Los Freseros menu" width="600" height="600">
+  </div>
+  <p class="subtext">Paletas · Nieves · Mangonadas · Antojitos</p>
+  <p class="url">paleterialosfreseros.com/menu</p>
+  <img class="logo" src="images/logo.png" alt="Paletería Los Freseros logo">
+</div>
+</body>
+</html>
