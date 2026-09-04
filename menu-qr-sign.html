@@ -7,71 +7,135 @@
 <title>Scan for Menu — Print Sign</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,700;9..144,900&family=Plus+Jakarta+Sans:wght@500;600;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,700;9..144,900&family=Plus+Jakarta+Sans:wght@500;600;700;800&family=Caveat:wght@700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/tokens.css">
 <style>
   * { box-sizing: border-box; }
   html, body {
     margin: 0;
     padding: 0;
-    font-family: 'Plus Jakarta Sans', sans-serif;
-    background: #f2f2f2;
+    font-family: var(--font-body);
+    background: #e8e8e8;
   }
   .page {
+    position: relative;
     width: 8.5in;
     height: 11in;
     margin: 0 auto;
-    background: #FFF6E4;
+    background: var(--color-cream);
+    overflow: hidden;
+    border-top: 14px solid;
+    border-bottom: 14px solid;
+    border-image: repeating-linear-gradient(
+      90deg,
+      var(--color-chili) 0 20px,
+      var(--color-mango) 20px 40px,
+      var(--color-tropical) 40px 60px,
+      var(--color-strawberry) 60px 80px
+    ) 14;
+  }
+  .band {
+    background: var(--color-chili);
+    color: var(--color-cream);
+    text-align: center;
+    padding: 0.5in 0.5in 0.65in;
+  }
+  .eyebrow {
+    font-family: var(--font-script);
+    font-size: 34px;
+    font-weight: 700;
+    color: var(--color-mango);
+    margin: 0 0 0.05in;
+  }
+  h1 {
+    font-family: var(--font-display);
+    font-weight: 900;
+    font-size: 62px;
+    line-height: 1.02;
+    color: var(--color-cream);
+    margin: 0;
+    text-transform: uppercase;
+    letter-spacing: 0.01em;
+  }
+  .body {
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
     text-align: center;
-    padding: 0.75in;
+    padding: 0.5in 0.75in 0.3in;
   }
-  .eyebrow {
-    font-size: 20px;
-    font-weight: 700;
-    letter-spacing: 0.08em;
-    text-transform: uppercase;
-    color: #C62828;
-    margin: 0 0 0.2in;
+  .qr-frame {
+    position: relative;
+    background: var(--color-white);
+    border-radius: 28px;
+    padding: 0.35in;
+    box-shadow: var(--shadow-lg);
+    margin-bottom: 0.35in;
   }
-  h1 {
-    font-family: 'Fraunces', serif;
-    font-weight: 900;
-    font-size: 64px;
-    line-height: 1.05;
-    color: #3A2317;
-    margin: 0 0 0.3in;
+  .qr-frame::before, .qr-frame::after,
+  .corner-tl, .corner-br {
+    content: "";
+    position: absolute;
+    width: 42px;
+    height: 42px;
+    border: 6px solid var(--color-mango);
   }
-  .qr-box {
-    background: #ffffff;
-    border-radius: 24px;
-    padding: 0.4in;
-    box-shadow: 0 0 0 6px #C62828;
-    margin-bottom: 0.4in;
+  .qr-frame::before {
+    top: -10px; left: -10px;
+    border-right: none; border-bottom: none;
+    border-radius: 10px 0 0 0;
   }
-  .qr-box img {
+  .qr-frame::after {
+    bottom: -10px; right: -10px;
+    border-left: none; border-top: none;
+    border-radius: 0 0 10px 0;
+  }
+  .qr-frame img {
     display: block;
-    width: 3.5in;
-    height: 3.5in;
+    width: 3.3in;
+    height: 3.3in;
   }
   .subtext {
-    font-size: 26px;
-    font-weight: 600;
-    color: #3A2317;
-    margin: 0 0 0.15in;
+    font-family: var(--font-display);
+    font-weight: 700;
+    font-size: 28px;
+    color: var(--color-choc);
+    margin: 0 0 0.12in;
   }
-  .url {
-    font-size: 20px;
-    font-weight: 500;
-    color: #8a5a2a;
-    margin: 0;
+  .categories {
+    font-size: 17px;
+    font-weight: 600;
+    color: var(--color-ink-soft);
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+    margin: 0 0 0.3in;
+  }
+  .url-pill {
+    display: inline-block;
+    background: var(--color-tropical);
+    color: var(--color-cream);
+    font-size: 19px;
+    font-weight: 700;
+    padding: 0.14in 0.4in;
+    border-radius: 999px;
+    margin-bottom: 0.35in;
+  }
+  .footer-row {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 16px;
   }
   .logo {
-    width: 90px;
-    height: 90px;
-    margin-top: 0.4in;
+    width: 64px;
+    height: 64px;
+  }
+  .tagline {
+    font-family: var(--font-script);
+    font-size: 26px;
+    font-weight: 700;
+    color: var(--color-chili);
   }
   @media print {
     body { background: none; }
@@ -82,14 +146,22 @@
 </head>
 <body>
 <div class="page">
-  <p class="eyebrow">Paletería Los Freseros</p>
-  <h1>Scan to<br>See Our Menu</h1>
-  <div class="qr-box">
-    <img src="https://api.qrserver.com/v1/create-qr-code/?size=600x600&data=https%3A%2F%2Fpaleterialosfreseros.com%2Fmenu.html" alt="QR code linking to the Paleteria Los Freseros menu" width="600" height="600">
+  <div class="band">
+    <p class="eyebrow">Paletería Los Freseros</p>
+    <h1>Scan for<br>Our Menu</h1>
   </div>
-  <p class="subtext">Paletas · Nieves · Mangonadas · Antojitos</p>
-  <p class="url">paleterialosfreseros.com/menu</p>
-  <img class="logo" src="images/logo.png" alt="Paletería Los Freseros logo">
+  <div class="body">
+    <div class="qr-frame">
+      <img src="https://api.qrserver.com/v1/create-qr-code/?size=600x600&color=59-33-24&bgcolor=255-255-255&data=https%3A%2F%2Fpaleterialosfreseros.com%2Fmenu.html" alt="QR code linking to the Paleteria Los Freseros menu" width="600" height="600">
+    </div>
+    <p class="subtext">While You Wait, Take a Look</p>
+    <p class="categories">Paletas &middot; Nieves &middot; Mangonadas &middot; Antojitos &middot; Bebidas</p>
+    <span class="url-pill">paleterialosfreseros.com/menu</span>
+    <div class="footer-row">
+      <img class="logo" src="images/logo.png" alt="Paletería Los Freseros logo">
+      <span class="tagline">El sabor de México, bien frío</span>
+    </div>
+  </div>
 </div>
 </body>
 </html>
