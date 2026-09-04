@@ -266,8 +266,8 @@
     "ice-cream-waffle-2",
     "ice-cream-waffle-3",
     "fountain-drink",
-    "italian-soda-sm",
-    "italian-soda-lg"
+    "italian-soda-limon",
+    "italian-soda-cherry"
   ]);
 
   // Collapse items that share the same photo into a single slide.
@@ -329,9 +329,12 @@
   }
 
   // Photos with a width/height ratio below this are noticeably narrower than
-  // the 16:9 frame and get heavily cropped by object-fit:cover, so they're
-  // shown uncropped (object-fit:contain) against the dark background instead.
-  const PORTRAIT_THRESHOLD = 1.2;
+  // the 16:9 frame (1.78) and get heavily cropped by object-fit:cover, so
+  // they're shown uncropped (object-fit:contain) against the dark background
+  // instead. This covers true portrait photos (~0.75-0.8) as well as 4:3
+  // landscape photos (1.33, e.g. the flavor paleta shots) that are still
+  // noticeably squarer than the 16:9 frame and looked over-zoomed under cover.
+  const PORTRAIT_THRESHOLD = 1.6;
 
   function markPortraitImages(root) {
     root.querySelectorAll(".slide-media").forEach((mediaEl) => {

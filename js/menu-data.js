@@ -323,7 +323,7 @@ const MENU_ITEMS = [
     category: "antojitos",
     description: "Tostilocos with any chips, plus elote.",
     badge: "Best Seller",
-    image: "images/menu/tostielote-mixto.jpg"
+    image: "images/Tostielote-Mixto.png"
   },
   {
     id: "crepes",
@@ -424,20 +424,20 @@ const MENU_ITEMS = [
     image: "images/Agua_de_limon_con_chia_y_pepino.png"
   },
   {
-    id: "italian-soda-sm",
-    name: "Italian Soda — Small",
-    price: 3.99,
+    id: "italian-soda-limon",
+    name: "Italian Soda — Limón",
+    price: 4.49,
     category: "bebidas",
-    description: "Choice of flavor, made fresh.",
-    image: "images/menu/italian-soda.jpg"
+    description: "Lime Italian soda with chia, made fresh.",
+    image: "images/italian-soda-lime.png"
   },
   {
-    id: "italian-soda-lg",
-    name: "Italian Soda — Large",
-    price: 4.99,
+    id: "italian-soda-cherry",
+    name: "Italian Soda — Cherry",
+    price: 4.49,
     category: "bebidas",
-    description: "Choice of flavor, made fresh.",
-    image: "images/menu/italian-soda.jpg"
+    description: "Cherry Italian soda, made fresh.",
+    image: "images/italian-soda-cherry.png"
   },
   {
     id: "frapuchino-sm",
